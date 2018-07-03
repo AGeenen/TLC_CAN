@@ -15,6 +15,7 @@
 
 #include "TrafficLightController.h"
 #include "TrafficLightController_private.h"
+#include "rt_urand_Upu32_Yd_f_pw.h"
 
 /* Named constants for Chart: '<Root>/TrafficLightHandler ' */
 #define TrafficLightContr_IN_OD_TRAFFIC ((uint8_T)2U)
