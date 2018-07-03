@@ -15,6 +15,12 @@
 
 #include "TLC_2016B.h"
 #include "TLC_2016B_private.h"
+#include "rtwtypes.h"
+
+extern const boolean_T rtCP_pooled_DW8BfQUitOnV;
+const boolean_T rtCP_pooled_DW8BfQUitOnV = 0;
+extern const boolean_T rtCP_pooled_IFpGdxwf999t;
+const boolean_T rtCP_pooled_IFpGdxwf999t = 1;
 
 /* Block signals (auto storage) */
 B_TLC_2016B_T TLC_2016B_B;
