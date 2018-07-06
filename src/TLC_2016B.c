@@ -3,9 +3,9 @@
  *
  * Code generated for Simulink model 'TLC_2016B'.
  *
- * Model version                  : 1.153
+ * Model version                  : 1.222
  * Simulink Coder version         : 8.11 (R2016b) 25-Aug-2016
- * C/C++ source code generated on : Fri Jul 06 10:43:42 2018
+ * C/C++ source code generated on : Fri Jul 06 15:06:01 2018
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: Intel->x86-64 (Windows64)
@@ -17,24 +17,50 @@
 #include "TLC_2016B_private.h"
 
 /* Exported block signals */
-boolean_T tag;                         /* '<Root>/Constant' */
-boolean_T lgtGrVd;                     /* '<S2>/LgtGrVd_' */
-boolean_T lgtReVd;                     /* '<S2>/LgtReVd_' */
-boolean_T lgtOrVd;                     /* '<S2>/LightOrVd_' */
-boolean_T sensor1Value;                /* '<S2>/Sensor1Value_' */
-boolean_T sensor1Vd;                   /* '<S2>/Sensor1Vd_' */
-boolean_T sensor2Value;                /* '<S2>/Sensor2Value_' */
-boolean_T sensor2Vd;                   /* '<S2>/Sensor2Vd_' */
-boolean_T sensor3Value;                /* '<S2>/Sensor3Value_' */
-boolean_T sensor3Vd;                   /* '<S2>/Sensor3Vd_' */
-boolean_T vdSD1;                       /* '<S2>/TrafficLightController' */
-boolean_T countSD1B1;                  /* '<S2>/TrafficLightController' */
-boolean_T countSD1B2;                  /* '<S2>/TrafficLightController' */
-boolean_T lightGrSD1;                  /* '<S2>/TrafficLightController' */
-boolean_T lightOrSD1;                  /* '<S2>/TrafficLightController' */
-
-/* Block signals (auto storage) */
-B_TLC_2016B_T TLC_2016B_B;
+real_T countSD1_E;                     /* '<S1>/TrafficLightController' */
+real_T countSD1_N;                     /* '<S2>/TrafficLightController' */
+real_T countSD1_S;                     /* '<S3>/TrafficLightController' */
+real_T countSD1_W;                     /* '<S4>/TrafficLightController' */
+uint8_T lightSD1_E;                    /* '<S1>/TrafficLightController' */
+uint8_T lightSD1_N;                    /* '<S2>/TrafficLightController' */
+uint8_T lightSD1_S;                    /* '<S3>/TrafficLightController' */
+uint8_T lightSD1_W;                    /* '<S4>/TrafficLightController' */
+boolean_T tag_N;                       /* '<Root>/Constant' */
+boolean_T tag_S;                       /* '<Root>/Constant1' */
+boolean_T tag_W;                       /* '<Root>/Constant2' */
+boolean_T tag_E;                       /* '<Root>/Constant3' */
+boolean_T lgtGrVd_E;                   /* '<S1>/LgtGrVd_' */
+boolean_T sensor1Value_E;              /* '<S1>/Sensor1Value_' */
+boolean_T sensor1Vd_E;                 /* '<S1>/Sensor1Vd_' */
+boolean_T sensor2Value_E;              /* '<S1>/Sensor2Value_' */
+boolean_T sensor2Vd_E;                 /* '<S1>/Sensor2Vd_' */
+boolean_T sensor3Value_E;              /* '<S1>/Sensor3Value_' */
+boolean_T sensor3Vd_E;                 /* '<S1>/Sensor3Vd_' */
+boolean_T vdSD1_E;                     /* '<S1>/TrafficLightController' */
+boolean_T lgtGrVd_N;                   /* '<S2>/LgtGrVd_' */
+boolean_T sensor1Value_N;              /* '<S2>/Sensor1Value_' */
+boolean_T sensor1Vd_N;                 /* '<S2>/Sensor1Vd_' */
+boolean_T sensor2Value_N;              /* '<S2>/Sensor2Value_' */
+boolean_T sensor2Vd_N;                 /* '<S2>/Sensor2Vd_' */
+boolean_T sensor3Value_N;              /* '<S2>/Sensor3Value_' */
+boolean_T sensor3Vd_N;                 /* '<S2>/Sensor3Vd_' */
+boolean_T vdSD1_N;                     /* '<S2>/TrafficLightController' */
+boolean_T lgtGrVd_S;                   /* '<S3>/LgtGrVd_' */
+boolean_T sensor1Value_S;              /* '<S3>/Sensor1Value_' */
+boolean_T sensor1Vd_S;                 /* '<S3>/Sensor1Vd_' */
+boolean_T sensor2Value_S;              /* '<S3>/Sensor2Value_' */
+boolean_T sensor2Vd_S;                 /* '<S3>/Sensor2Vd_' */
+boolean_T sensor3Value_S;              /* '<S3>/Sensor3Value_' */
+boolean_T sensor3Vd_S;                 /* '<S3>/Sensor3Vd_' */
+boolean_T vdSD1_S;                     /* '<S3>/TrafficLightController' */
+boolean_T lgtGrVd_W;                   /* '<S4>/LgtGrVd_' */
+boolean_T sensor1Value_W;              /* '<S4>/Sensor1Value_' */
+boolean_T sensor1Vd_W;                 /* '<S4>/Sensor1Vd_' */
+boolean_T sensor2Value_W;              /* '<S4>/Sensor2Value_' */
+boolean_T sensor2Vd_W;                 /* '<S4>/Sensor2Vd_' */
+boolean_T sensor3Value_W;              /* '<S4>/Sensor3Value_' */
+boolean_T sensor3Vd_W;                 /* '<S4>/Sensor3Vd_' */
+boolean_T vdSD1_W;                     /* '<S4>/TrafficLightController' */
 
 /* Block states (auto storage) */
 DW_TLC_2016B_T TLC_2016B_DW;
@@ -47,148 +73,86 @@ RT_MODEL_TLC_2016B_T *const TLC_2016B_M = &TLC_2016B_M_;
 void TLC_2016B_step(void)
 {
   /* local block i/o variables */
-  boolean_T rtb_vdSD1;
-  boolean_T rtb_vdSD1_f;
-  boolean_T rtb_vdSD1_g;
-  boolean_T rtb_vdSD1_p;
-  boolean_T rtb_lightOrSD1;
-  boolean_T rtb_vdSD1_po;
-  boolean_T rtb_countSD1B1;
-  boolean_T rtb_countSD1B2;
-  boolean_T rtb_lightGrSD1;
-  boolean_T rtb_lightOrSD1_c;
-  boolean_T rtb_vdSD1_pon;
-  boolean_T rtb_countSD1B1_l;
-  boolean_T rtb_countSD1B2_d;
-  boolean_T rtb_lightGrSD1_d;
-  boolean_T rtb_countSD1B1_lv;
-  boolean_T rtb_lightOrSD1_cq;
-  boolean_T rtb_countSD1B2_dw;
-  boolean_T rtb_lightGrSD1_de;
-  boolean_T rtb_lightOrSD1_cqc;
-  boolean_T rtb_vdSD1_ponu;
-  boolean_T rtb_countSD1B1_lvr;
-  boolean_T rtb_countSD1B2_dw2;
-  boolean_T rtb_lightGrSD1_dee;
+  real_T rtb_countSD1_E;
+  real_T rtb_countSD1_N;
+  real_T rtb_countSD1_S;
+  real_T rtb_countSD1_W;
+  uint8_T rtb_lightSD1_E;
+  uint8_T rtb_lightSD1_N;
+  uint8_T rtb_lightSD1_S;
+  uint8_T rtb_lightSD1_W;
+  boolean_T rtb_vdSD1_N;
+  boolean_T rtb_vdSD1_E;
+  boolean_T rtb_vdSD1_S;
+  boolean_T rtb_vdSD1_W;
 
   /* Delay: '<Root>/Delay' */
-  rtb_vdSD1_p = vdSD1;
+  rtb_vdSD1_N = vdSD1_N;
 
   /* Delay: '<Root>/Delay' */
-  rtb_lightOrSD1 = TLC_2016B_B.lightOrSD1_p;
+  rtb_vdSD1_E = vdSD1_E;
 
   /* Delay: '<Root>/Delay' */
-  rtb_vdSD1_po = TLC_2016B_DW.Delay_11_DSTATE;
+  rtb_countSD1_E = countSD1_E;
 
   /* Delay: '<Root>/Delay' */
-  rtb_countSD1B1 = TLC_2016B_B.countSD1B1_g;
+  rtb_lightSD1_E = lightSD1_E;
 
   /* Delay: '<Root>/Delay' */
-  rtb_countSD1B2 = TLC_2016B_B.countSD1B2_i;
+  rtb_countSD1_N = countSD1_N;
 
   /* Delay: '<Root>/Delay' */
-  rtb_lightGrSD1 = TLC_2016B_B.lightGrSD1_e;
+  rtb_lightSD1_N = lightSD1_N;
 
   /* Delay: '<Root>/Delay' */
-  rtb_lightOrSD1_c = TLC_2016B_B.lightOrSD1_l;
+  rtb_vdSD1_S = vdSD1_S;
 
   /* Delay: '<Root>/Delay' */
-  rtb_vdSD1_pon = TLC_2016B_DW.Delay_16_DSTATE;
+  rtb_countSD1_S = countSD1_S;
 
   /* Delay: '<Root>/Delay' */
-  rtb_countSD1B1_l = TLC_2016B_B.countSD1B1_e;
+  rtb_lightSD1_S = lightSD1_S;
 
   /* Delay: '<Root>/Delay' */
-  rtb_countSD1B2_d = TLC_2016B_B.countSD1B2_n;
+  rtb_vdSD1_W = vdSD1_W;
 
   /* Delay: '<Root>/Delay' */
-  rtb_lightGrSD1_d = TLC_2016B_B.lightGrSD1_k;
+  rtb_countSD1_W = countSD1_W;
 
   /* Delay: '<Root>/Delay' */
-  rtb_countSD1B1_lv = countSD1B1;
-
-  /* Delay: '<Root>/Delay' */
-  rtb_lightOrSD1_cq = TLC_2016B_B.lightOrSD1_e;
-
-  /* Delay: '<Root>/Delay' */
-  rtb_countSD1B2_dw = countSD1B2;
-
-  /* Delay: '<Root>/Delay' */
-  rtb_lightGrSD1_de = lightGrSD1;
-
-  /* Delay: '<Root>/Delay' */
-  rtb_lightOrSD1_cqc = lightOrSD1;
-
-  /* Delay: '<Root>/Delay' */
-  rtb_vdSD1_ponu = TLC_2016B_DW.Delay_6_DSTATE;
-
-  /* Delay: '<Root>/Delay' */
-  rtb_countSD1B1_lvr = TLC_2016B_B.countSD1B1_h;
-
-  /* Delay: '<Root>/Delay' */
-  rtb_countSD1B2_dw2 = TLC_2016B_B.countSD1B2_p;
-
-  /* Delay: '<Root>/Delay' */
-  rtb_lightGrSD1_dee = TLC_2016B_B.lightGrSD1_i;
+  rtb_lightSD1_W = lightSD1_W;
 
   /* ModelReference: '<S1>/TrafficLightController' */
-  TrafficLightController(&rtCP_Sensor1Vd_Value, &rtCP_Sensor2Vd_Value,
-    &rtCP_Sensor3Vd_Value, &rtCP_LgtGrVd_Value, &rtCP_LightOrVd_Value,
-    &rtCP_LgtReVd_Value, &rtCP_Sensor1Value_Value, &rtCP_Sensor2Value_Value,
-    &rtCP_Sensor3Value_Value, &rtb_vdSD1_po, &rtb_lightGrSD1, &rtb_lightOrSD1_c,
-    &rtb_countSD1B1, &rtb_countSD1B2, &rtb_vdSD1_ponu, &rtb_lightGrSD1_dee,
-    &rtb_lightOrSD1, &rtb_countSD1B1_lvr, &rtb_countSD1B2_dw2, &rtb_vdSD1_p,
-    &rtb_lightGrSD1_de, &rtb_lightOrSD1_cqc, &rtb_countSD1B1_lv,
-    &rtb_countSD1B2_dw, &rtCP_Constant3_Value, &rtb_vdSD1,
-    &TLC_2016B_B.countSD1B1_e, &TLC_2016B_B.countSD1B2_n,
-    &TLC_2016B_B.lightGrSD1_k, &TLC_2016B_B.lightOrSD1_e,
+  TrafficLightController(&sensor1Vd_E, &sensor2Vd_E, &sensor3Vd_E, &lgtGrVd_E,
+    &sensor1Value_E, &sensor2Value_E, &sensor3Value_E, &rtb_vdSD1_W,
+    &rtb_countSD1_W, &rtb_lightSD1_W, &rtb_vdSD1_S, &rtb_countSD1_S,
+    &rtb_lightSD1_S, &rtb_vdSD1_N, &rtb_countSD1_N, &rtb_lightSD1_N, &tag_E,
+    &vdSD1_E, &countSD1_E, &lightSD1_E,
     &(TLC_2016B_DW.TrafficLightController_DWORK1.rtdw));
 
   /* ModelReference: '<S2>/TrafficLightController' */
-  TrafficLightController(&sensor1Vd, &sensor2Vd, &sensor3Vd, &lgtGrVd, &lgtOrVd,
-    &lgtReVd, &sensor1Value, &sensor2Value, &sensor3Value, &rtb_vdSD1_ponu,
-    &rtb_lightGrSD1_dee, &rtb_lightOrSD1, &rtb_countSD1B1_lvr,
-    &rtb_countSD1B2_dw2, &rtb_vdSD1_pon, &rtb_lightGrSD1_d, &rtb_lightOrSD1_cq,
-    &rtb_countSD1B1_l, &rtb_countSD1B2_d, &rtb_vdSD1_po, &rtb_lightGrSD1,
-    &rtb_lightOrSD1_c, &rtb_countSD1B1, &rtb_countSD1B2, &tag, &vdSD1,
-    &countSD1B1, &countSD1B2, &lightGrSD1, &lightOrSD1,
+  TrafficLightController(&sensor1Vd_N, &sensor2Vd_N, &sensor3Vd_N, &lgtGrVd_N,
+    &sensor1Value_N, &sensor2Value_N, &sensor3Value_N, &rtb_vdSD1_S,
+    &rtb_countSD1_S, &rtb_lightSD1_S, &rtb_vdSD1_E, &rtb_countSD1_E,
+    &rtb_lightSD1_E, &rtb_vdSD1_W, &rtb_countSD1_W, &rtb_lightSD1_W, &tag_N,
+    &vdSD1_N, &countSD1_N, &lightSD1_N,
     &(TLC_2016B_DW.TrafficLightController_DWORK1_m.rtdw));
 
   /* ModelReference: '<S3>/TrafficLightController' */
-  TrafficLightController(&rtCP_Sensor1Vd_Value_e, &rtCP_Sensor2Vd_Value_c,
-    &rtCP_Sensor3Vd_Value_h, &rtCP_LgtGrVd_Value_e, &rtCP_LightOrVd_Value_i,
-    &rtCP_LgtReVd_Value_j, &rtCP_Sensor1Value_Value_c,
-    &rtCP_Sensor2Value_Value_g, &rtCP_Sensor3Value_Value_l, &rtb_vdSD1_p,
-    &rtb_lightGrSD1_de, &rtb_lightOrSD1_cqc, &rtb_countSD1B1_lv,
-    &rtb_countSD1B2_dw, &rtb_vdSD1_po, &rtb_lightGrSD1, &rtb_lightOrSD1_c,
-    &rtb_countSD1B1, &rtb_countSD1B2, &rtb_vdSD1_pon, &rtb_lightGrSD1_d,
-    &rtb_lightOrSD1_cq, &rtb_countSD1B1_l, &rtb_countSD1B2_d,
-    &rtCP_Constant1_Value, &rtb_vdSD1_f, &TLC_2016B_B.countSD1B1_h,
-    &TLC_2016B_B.countSD1B2_p, &TLC_2016B_B.lightGrSD1_i,
-    &TLC_2016B_B.lightOrSD1_p,
-    &(TLC_2016B_DW.TrafficLightController_DWORK1_a.rtdw));
+  TrafficLightController(&sensor1Vd_S, &sensor2Vd_S, &sensor3Vd_S, &lgtGrVd_S,
+    &sensor1Value_S, &sensor2Value_S, &sensor3Value_S, &rtb_vdSD1_N,
+    &rtb_countSD1_N, &rtb_lightSD1_N, &rtb_vdSD1_W, &rtb_countSD1_W,
+    &rtb_lightSD1_W, &rtb_vdSD1_E, &rtb_countSD1_E, &rtb_lightSD1_E, &tag_S,
+    &vdSD1_S, &countSD1_S, &lightSD1_S,
+    &(TLC_2016B_DW.TrafficLightController_DWORK1_d.rtdw));
 
   /* ModelReference: '<S4>/TrafficLightController' */
-  TrafficLightController(&rtCP_Sensor1Vd_Value_f, &rtCP_Sensor2Vd_Value_n,
-    &rtCP_Sensor3Vd_Value_p, &rtCP_LgtGrVd_Value_ev, &rtCP_LightOrVd_Value_h,
-    &rtCP_LgtReVd_Value_i, &rtCP_Sensor1Value_Value_h,
-    &rtCP_Sensor2Value_Value_a, &rtCP_Sensor3Value_Value_c, &rtb_vdSD1_pon,
-    &rtb_lightGrSD1_d, &rtb_lightOrSD1_cq, &rtb_countSD1B1_l, &rtb_countSD1B2_d,
-    &rtb_vdSD1_p, &rtb_lightGrSD1_de, &rtb_lightOrSD1_cqc, &rtb_countSD1B1_lv,
-    &rtb_countSD1B2_dw, &rtb_vdSD1_ponu, &rtb_lightGrSD1_dee, &rtb_lightOrSD1,
-    &rtb_countSD1B1_lvr, &rtb_countSD1B2_dw2, &rtCP_Constant2_Value,
-    &rtb_vdSD1_g, &TLC_2016B_B.countSD1B1_g, &TLC_2016B_B.countSD1B2_i,
-    &TLC_2016B_B.lightGrSD1_e, &TLC_2016B_B.lightOrSD1_l,
-    &(TLC_2016B_DW.TrafficLightController_DWORK1_e.rtdw));
-
-  /* Update for Delay: '<Root>/Delay' */
-  TLC_2016B_DW.Delay_11_DSTATE = rtb_vdSD1_g;
-
-  /* Update for Delay: '<Root>/Delay' */
-  TLC_2016B_DW.Delay_16_DSTATE = rtb_vdSD1;
-
-  /* Update for Delay: '<Root>/Delay' */
-  TLC_2016B_DW.Delay_6_DSTATE = rtb_vdSD1_f;
+  TrafficLightController(&sensor1Vd_W, &sensor2Vd_W, &sensor3Vd_W, &lgtGrVd_W,
+    &sensor1Value_W, &sensor2Value_W, &sensor3Value_W, &rtb_vdSD1_E,
+    &rtb_countSD1_E, &rtb_lightSD1_E, &rtb_vdSD1_N, &rtb_countSD1_N,
+    &rtb_lightSD1_N, &rtb_vdSD1_S, &rtb_countSD1_S, &rtb_lightSD1_S, &tag_W,
+    &vdSD1_W, &countSD1_W, &lightSD1_W,
+    &(TLC_2016B_DW.TrafficLightController_DWORK1_i.rtdw));
 }
 
 /* Model initialize function */
@@ -200,25 +164,52 @@ void TLC_2016B_initialize(void)
   rtmSetErrorStatus(TLC_2016B_M, (NULL));
 
   /* block I/O */
-  (void) memset(((void *) &TLC_2016B_B), 0,
-                sizeof(B_TLC_2016B_T));
 
   /* exported global signals */
-  tag = false;
-  lgtGrVd = true;
-  lgtReVd = true;
-  lgtOrVd = true;
-  sensor1Value = true;
-  sensor1Vd = true;
-  sensor2Value = true;
-  sensor2Vd = true;
-  sensor3Value = false;
-  sensor3Vd = true;
-  vdSD1 = false;
-  countSD1B1 = false;
-  countSD1B2 = false;
-  lightGrSD1 = false;
-  lightOrSD1 = false;
+  countSD1_E = 0.0;
+  countSD1_N = 0.0;
+  countSD1_S = 0.0;
+  countSD1_W = 0.0;
+  lightSD1_E = 0U;
+  lightSD1_N = 0U;
+  lightSD1_S = 0U;
+  lightSD1_W = 0U;
+  tag_N = false;
+  tag_S = false;
+  tag_W = true;
+  tag_E = true;
+  lgtGrVd_E = true;
+  sensor1Value_E = true;
+  sensor1Vd_E = true;
+  sensor2Value_E = true;
+  sensor2Vd_E = true;
+  sensor3Value_E = false;
+  sensor3Vd_E = true;
+  vdSD1_E = false;
+  lgtGrVd_N = true;
+  sensor1Value_N = true;
+  sensor1Vd_N = true;
+  sensor2Value_N = true;
+  sensor2Vd_N = true;
+  sensor3Value_N = false;
+  sensor3Vd_N = true;
+  vdSD1_N = false;
+  lgtGrVd_S = true;
+  sensor1Value_S = true;
+  sensor1Vd_S = true;
+  sensor2Value_S = true;
+  sensor2Vd_S = true;
+  sensor3Value_S = false;
+  sensor3Vd_S = true;
+  vdSD1_S = false;
+  lgtGrVd_W = true;
+  sensor1Value_W = true;
+  sensor1Vd_W = true;
+  sensor2Value_W = true;
+  sensor2Vd_W = true;
+  sensor3Value_W = false;
+  sensor3Vd_W = true;
+  vdSD1_W = false;
 
   /* states (dwork) */
   (void) memset((void *)&TLC_2016B_DW, 0,
@@ -236,73 +227,205 @@ void TLC_2016B_initialize(void)
 
   /* Model Initialize fcn for ModelReference Block: '<S3>/TrafficLightController' */
   TrafficLightControll_initialize(rtmGetErrorStatusPointer(TLC_2016B_M),
-    &(TLC_2016B_DW.TrafficLightController_DWORK1_a.rtm),
-    &(TLC_2016B_DW.TrafficLightController_DWORK1_a.rtdw));
+    &(TLC_2016B_DW.TrafficLightController_DWORK1_d.rtm),
+    &(TLC_2016B_DW.TrafficLightController_DWORK1_d.rtdw));
 
   /* Model Initialize fcn for ModelReference Block: '<S4>/TrafficLightController' */
   TrafficLightControll_initialize(rtmGetErrorStatusPointer(TLC_2016B_M),
-    &(TLC_2016B_DW.TrafficLightController_DWORK1_e.rtm),
-    &(TLC_2016B_DW.TrafficLightController_DWORK1_e.rtdw));
+    &(TLC_2016B_DW.TrafficLightController_DWORK1_i.rtm),
+    &(TLC_2016B_DW.TrafficLightController_DWORK1_i.rtdw));
 
   /* Start for Constant: '<Root>/Constant' */
-  tag = false;
+  tag_N = false;
+
+  /* Start for Constant: '<Root>/Constant1' */
+  tag_S = false;
+
+  /* Start for Constant: '<Root>/Constant2' */
+  tag_W = true;
+
+  /* Start for Constant: '<Root>/Constant3' */
+  tag_E = true;
+
+  /* Start for Constant: '<S1>/LgtGrVd_' */
+  lgtGrVd_E = true;
+
+  /* Start for Constant: '<S1>/Sensor1Value_' */
+  sensor1Value_E = true;
+
+  /* Start for Constant: '<S1>/Sensor1Vd_' */
+  sensor1Vd_E = true;
+
+  /* Start for Constant: '<S1>/Sensor2Value_' */
+  sensor2Value_E = true;
+
+  /* Start for Constant: '<S1>/Sensor2Vd_' */
+  sensor2Vd_E = true;
+
+  /* Start for Constant: '<S1>/Sensor3Value_' */
+  sensor3Value_E = false;
+
+  /* Start for Constant: '<S1>/Sensor3Vd_' */
+  sensor3Vd_E = true;
 
   /* Start for Constant: '<S2>/LgtGrVd_' */
-  lgtGrVd = true;
-
-  /* Start for Constant: '<S2>/LgtReVd_' */
-  lgtReVd = true;
-
-  /* Start for Constant: '<S2>/LightOrVd_' */
-  lgtOrVd = true;
+  lgtGrVd_N = true;
 
   /* Start for Constant: '<S2>/Sensor1Value_' */
-  sensor1Value = true;
+  sensor1Value_N = true;
 
   /* Start for Constant: '<S2>/Sensor1Vd_' */
-  sensor1Vd = true;
+  sensor1Vd_N = true;
 
   /* Start for Constant: '<S2>/Sensor2Value_' */
-  sensor2Value = true;
+  sensor2Value_N = true;
 
   /* Start for Constant: '<S2>/Sensor2Vd_' */
-  sensor2Vd = true;
+  sensor2Vd_N = true;
 
   /* Start for Constant: '<S2>/Sensor3Value_' */
-  sensor3Value = false;
+  sensor3Value_N = false;
 
   /* Start for Constant: '<S2>/Sensor3Vd_' */
-  sensor3Vd = true;
+  sensor3Vd_N = true;
+
+  /* Start for Constant: '<S3>/LgtGrVd_' */
+  lgtGrVd_S = true;
+
+  /* Start for Constant: '<S3>/Sensor1Value_' */
+  sensor1Value_S = true;
+
+  /* Start for Constant: '<S3>/Sensor1Vd_' */
+  sensor1Vd_S = true;
+
+  /* Start for Constant: '<S3>/Sensor2Value_' */
+  sensor2Value_S = true;
+
+  /* Start for Constant: '<S3>/Sensor2Vd_' */
+  sensor2Vd_S = true;
+
+  /* Start for Constant: '<S3>/Sensor3Value_' */
+  sensor3Value_S = false;
+
+  /* Start for Constant: '<S3>/Sensor3Vd_' */
+  sensor3Vd_S = true;
+
+  /* Start for Constant: '<S4>/LgtGrVd_' */
+  lgtGrVd_W = true;
+
+  /* Start for Constant: '<S4>/Sensor1Value_' */
+  sensor1Value_W = true;
+
+  /* Start for Constant: '<S4>/Sensor1Vd_' */
+  sensor1Vd_W = true;
+
+  /* Start for Constant: '<S4>/Sensor2Value_' */
+  sensor2Value_W = true;
+
+  /* Start for Constant: '<S4>/Sensor2Vd_' */
+  sensor2Vd_W = true;
+
+  /* Start for Constant: '<S4>/Sensor3Value_' */
+  sensor3Value_W = false;
+
+  /* Start for Constant: '<S4>/Sensor3Vd_' */
+  sensor3Vd_W = true;
 
   /* ConstCode for Constant: '<Root>/Constant' */
-  tag = false;
+  tag_N = false;
+
+  /* ConstCode for Constant: '<Root>/Constant1' */
+  tag_S = false;
+
+  /* ConstCode for Constant: '<Root>/Constant2' */
+  tag_W = true;
+
+  /* ConstCode for Constant: '<Root>/Constant3' */
+  tag_E = true;
+
+  /* ConstCode for Constant: '<S1>/LgtGrVd_' */
+  lgtGrVd_E = true;
+
+  /* ConstCode for Constant: '<S1>/Sensor1Value_' */
+  sensor1Value_E = true;
+
+  /* ConstCode for Constant: '<S1>/Sensor1Vd_' */
+  sensor1Vd_E = true;
+
+  /* ConstCode for Constant: '<S1>/Sensor2Value_' */
+  sensor2Value_E = true;
+
+  /* ConstCode for Constant: '<S1>/Sensor2Vd_' */
+  sensor2Vd_E = true;
+
+  /* ConstCode for Constant: '<S1>/Sensor3Value_' */
+  sensor3Value_E = false;
+
+  /* ConstCode for Constant: '<S1>/Sensor3Vd_' */
+  sensor3Vd_E = true;
 
   /* ConstCode for Constant: '<S2>/LgtGrVd_' */
-  lgtGrVd = true;
-
-  /* ConstCode for Constant: '<S2>/LgtReVd_' */
-  lgtReVd = true;
-
-  /* ConstCode for Constant: '<S2>/LightOrVd_' */
-  lgtOrVd = true;
+  lgtGrVd_N = true;
 
   /* ConstCode for Constant: '<S2>/Sensor1Value_' */
-  sensor1Value = true;
+  sensor1Value_N = true;
 
   /* ConstCode for Constant: '<S2>/Sensor1Vd_' */
-  sensor1Vd = true;
+  sensor1Vd_N = true;
 
   /* ConstCode for Constant: '<S2>/Sensor2Value_' */
-  sensor2Value = true;
+  sensor2Value_N = true;
 
   /* ConstCode for Constant: '<S2>/Sensor2Vd_' */
-  sensor2Vd = true;
+  sensor2Vd_N = true;
 
   /* ConstCode for Constant: '<S2>/Sensor3Value_' */
-  sensor3Value = false;
+  sensor3Value_N = false;
 
   /* ConstCode for Constant: '<S2>/Sensor3Vd_' */
-  sensor3Vd = true;
+  sensor3Vd_N = true;
+
+  /* ConstCode for Constant: '<S3>/LgtGrVd_' */
+  lgtGrVd_S = true;
+
+  /* ConstCode for Constant: '<S3>/Sensor1Value_' */
+  sensor1Value_S = true;
+
+  /* ConstCode for Constant: '<S3>/Sensor1Vd_' */
+  sensor1Vd_S = true;
+
+  /* ConstCode for Constant: '<S3>/Sensor2Value_' */
+  sensor2Value_S = true;
+
+  /* ConstCode for Constant: '<S3>/Sensor2Vd_' */
+  sensor2Vd_S = true;
+
+  /* ConstCode for Constant: '<S3>/Sensor3Value_' */
+  sensor3Value_S = false;
+
+  /* ConstCode for Constant: '<S3>/Sensor3Vd_' */
+  sensor3Vd_S = true;
+
+  /* ConstCode for Constant: '<S4>/LgtGrVd_' */
+  lgtGrVd_W = true;
+
+  /* ConstCode for Constant: '<S4>/Sensor1Value_' */
+  sensor1Value_W = true;
+
+  /* ConstCode for Constant: '<S4>/Sensor1Vd_' */
+  sensor1Vd_W = true;
+
+  /* ConstCode for Constant: '<S4>/Sensor2Value_' */
+  sensor2Value_W = true;
+
+  /* ConstCode for Constant: '<S4>/Sensor2Vd_' */
+  sensor2Vd_W = true;
+
+  /* ConstCode for Constant: '<S4>/Sensor3Value_' */
+  sensor3Value_W = false;
+
+  /* ConstCode for Constant: '<S4>/Sensor3Vd_' */
+  sensor3Vd_W = true;
 
   /* SystemInitialize for ModelReference: '<S1>/TrafficLightController' */
   TrafficLightController_Init(&(TLC_2016B_DW.TrafficLightController_DWORK1.rtdw));
@@ -313,11 +436,11 @@ void TLC_2016B_initialize(void)
 
   /* SystemInitialize for ModelReference: '<S3>/TrafficLightController' */
   TrafficLightController_Init
-    (&(TLC_2016B_DW.TrafficLightController_DWORK1_a.rtdw));
+    (&(TLC_2016B_DW.TrafficLightController_DWORK1_d.rtdw));
 
   /* SystemInitialize for ModelReference: '<S4>/TrafficLightController' */
   TrafficLightController_Init
-    (&(TLC_2016B_DW.TrafficLightController_DWORK1_e.rtdw));
+    (&(TLC_2016B_DW.TrafficLightController_DWORK1_i.rtdw));
 }
 
 /* Model terminate function */

@@ -3,9 +3,9 @@
  *
  * Code generated for Simulink model 'TrafficLightController'.
  *
- * Model version                  : 1.160
+ * Model version                  : 1.194
  * Simulink Coder version         : 8.11 (R2016b) 25-Aug-2016
- * C/C++ source code generated on : Fri Jun 29 10:25:27 2018
+ * C/C++ source code generated on : Fri Jul 06 15:05:53 2018
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: Intel->x86-64 (Windows64)

@@ -3,9 +3,9 @@
  *
  * Code generated for Simulink model 'TrafficLightController'.
  *
- * Model version                  : 1.160
+ * Model version                  : 1.194
  * Simulink Coder version         : 8.11 (R2016b) 25-Aug-2016
- * C/C++ source code generated on : Fri Jun 29 10:25:27 2018
+ * C/C++ source code generated on : Fri Jul 06 15:05:53 2018
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: Intel->x86-64 (Windows64)
@@ -22,18 +22,13 @@
 #endif                                 /* TrafficLightController_COMMON_INCLUDES_ */
 
 #include "TrafficLightController_types.h"
-#include "rt_urand_Upu32_Yd_f_pw.h"
 
 /* Block states (auto storage) for model 'TrafficLightController' */
 typedef struct {
-  real_T UniformRandomNumber_NextOutput;/* '<Root>/Uniform Random Number' */
-  uint32_T RandSeed;                   /* '<Root>/Uniform Random Number' */
+  real_T DelayOneStep1_DSTATE;         /* '<Root>/Delay One Step1' */
   uint32_T temporalCounter_i1;         /* '<Root>/TrafficLightHandler ' */
   uint32_T temporalCounter_i2;         /* '<Root>/TrafficLightHandler ' */
-  boolean_T Delay_DSTATE;              /* '<Root>/Delay' */
-  boolean_T Delay1_DSTATE;             /* '<Root>/Delay1' */
-  boolean_T DelayOneStep2_DSTATE;      /* '<Root>/Delay One Step2' */
-  boolean_T DelayOneStep3_DSTATE;      /* '<Root>/Delay One Step3' */
+  uint8_T Delay_DSTATE;                /* '<Root>/Delay' */
   boolean_T DelayOneStep4_DSTATE;      /* '<Root>/Delay One Step4' */
   boolean_T Delay2_DSTATE;             /* '<Root>/Delay2' */
   uint8_T is_active_c4_TrafficLightContro;/* '<Root>/TrafficLightHandler ' */
@@ -59,23 +54,19 @@ extern void TrafficLightControll_initialize(const char_T **rt_errorStatus,
 extern void TrafficLightController_Init(DW_TrafficLightController_f_T *localDW);
 extern void TrafficLightController(const boolean_T *rtu_Sensor1Vd_, const
   boolean_T *rtu_Sensor2Vd_, const boolean_T *rtu_Sensor3Vd_, const boolean_T
-  *rtu_LgtGrVd_, const boolean_T *rtu_LgtOrVd_, const boolean_T *rtu_LgtReVd_,
-  const boolean_T *rtu_Sensor1Value_, const boolean_T *rtu_Sensor2Value_, const
-  boolean_T *rtu_Sensor3Value_, const boolean_T *rtu_VdSD2, const boolean_T
-  *rtu_LightGrSD2_, const boolean_T *rtu_LightOrSD2_, const boolean_T
-  *rtu_CountSD2B1_, const boolean_T *rtu_CountSD2B2_, const boolean_T *rtu_VdOD1,
-  const boolean_T *rtu_LightGrOD1_, const boolean_T *rtu_LightOrOD1_, const
-  boolean_T *rtu_CountOD1B1_, const boolean_T *rtu_CountOD1B2_, const boolean_T *
-  rtu_VdOD2, const boolean_T *rtu_LightGrOD2_, const boolean_T *rtu_LightOrOD2_,
-  const boolean_T *rtu_CountOD2B1_, const boolean_T *rtu_CountOD2B2_, const
-  boolean_T *rtu_Tag_, boolean_T *rty_VdSD1, boolean_T *rty_CountSD1B1,
-  boolean_T *rty_CountSD1B2, boolean_T *rty_LightGrSD1, boolean_T
-  *rty_LightOrSD1, DW_TrafficLightController_f_T *localDW);
+  *rtu_lgtVd, const boolean_T *rtu_Sensor1Value_, const boolean_T
+  *rtu_Sensor2Value_, const boolean_T *rtu_Sensor3Value_, const boolean_T
+  *rtu_VdSD2, const real_T *rtu_CountSD2, const uint8_T *rtu_LightSD2_, const
+  boolean_T *rtu_VdOD1, const real_T *rtu_CountOD1, const uint8_T *rtu_LightOD1_,
+  const boolean_T *rtu_VdOD2, const real_T *rtu_CountOD2, const uint8_T
+  *rtu_LightOD2_, const boolean_T *rtu_Tag_, boolean_T *rty_VdSD1, real_T
+  *rty_CountSD1, uint8_T *rty_LightSD1, DW_TrafficLightController_f_T *localDW);
 
 /*-
  * These blocks were eliminated from the model due to optimizations:
  *
  * Block '<Root>/Scope' : Unused code path elimination
+ * Block '<Root>/Data Type Conversion3' : Eliminate redundant data type conversion
  */
 
 /*-
@@ -94,11 +85,9 @@ extern void TrafficLightController(const boolean_T *rtu_Sensor1Vd_, const
  *
  * '<Root>' : 'TrafficLightController'
  * '<S1>'   : 'TrafficLightController/Chart'
- * '<S2>'   : 'TrafficLightController/Counter'
- * '<S3>'   : 'TrafficLightController/LightEmControl'
- * '<S4>'   : 'TrafficLightController/TrafficLightHandler '
- * '<S5>'   : 'TrafficLightController/Validator'
- * '<S6>'   : 'TrafficLightController/sensorValueHandler'
+ * '<S2>'   : 'TrafficLightController/LightEmControl'
+ * '<S3>'   : 'TrafficLightController/TrafficLightHandler '
+ * '<S4>'   : 'TrafficLightController/Validator'
  */
 #endif                                 /* RTW_HEADER_TrafficLightController_h_ */
 
