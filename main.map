@@ -25,7 +25,7 @@ Linker script and memory map
                 0x0000000008000000                g_pfnVectors
                 0x0000000008000184                . = ALIGN (0x4)
 
-.text           0x0000000008000188     0x71e8
+.text           0x0000000008000188     0x71b8
                 0x0000000008000188                . = ALIGN (0x4)
  *(.text)
  .text          0x0000000008000188       0x10 obj/main.o
@@ -329,249 +329,249 @@ Linker script and memory map
                 0x0000000008005c88                CAN_TxRxMessage
                 0x0000000008005cf4                CAN1_RX0_IRQHandler
  .text          0x0000000008005d34        0x0 obj/const_params.o
- .text          0x0000000008005d34      0x670 obj/TLC_2016B.o
+ .text          0x0000000008005d34      0x640 obj/TLC_2016B.o
                 0x0000000008005d34                TLC_2016B_step
-                0x0000000008005fb0                TLC_2016B_initialize
-                0x0000000008006398                TLC_2016B_terminate
- .text          0x00000000080063a4       0xa0 obj/rt_urand_Upu32_Yd_f_pw.o
-                0x00000000080063a4                rt_urand_Upu32_Yd_f_pw
- *fill*         0x0000000008006444        0x4 
- .text          0x0000000008006448      0x494 obj/TrafficLightController.o
-                0x0000000008006448                TrafficLightController_Init
-                0x0000000008006480                TrafficLightController
-                0x00000000080068b8                TrafficLightControll_initialize
- .text          0x00000000080068dc       0x38 obj/memset.o
-                0x00000000080068dc                memset
- .text          0x0000000008006914       0x14 obj/startup_stm32f2xx.o
- .text          0x0000000008006928      0x41c libgcc.a(_arm_addsubdf3.o)
-                0x0000000008006928                __aeabi_drsub
-                0x0000000008006930                __aeabi_dsub
-                0x0000000008006930                __subdf3
-                0x0000000008006934                __adddf3
-                0x0000000008006934                __aeabi_dadd
-                0x0000000008006c44                __aeabi_ui2d
-                0x0000000008006c44                __floatunsidf
-                0x0000000008006c68                __floatsidf
-                0x0000000008006c68                __aeabi_i2d
-                0x0000000008006c90                __extendsfdf2
-                0x0000000008006c90                __aeabi_f2d
-                0x0000000008006cd0                __aeabi_ul2d
-                0x0000000008006cd0                __floatundidf
-                0x0000000008006ce4                __floatdidf
-                0x0000000008006ce4                __aeabi_l2d
- .text          0x0000000008006d44      0x49c libgcc.a(_arm_muldivdf3.o)
-                0x0000000008006d44                __aeabi_dmul
-                0x0000000008006d44                __muldf3
-                0x0000000008006fd4                __aeabi_ddiv
-                0x0000000008006fd4                __divdf3
- .text          0x00000000080071e0      0x144 libgcc.a(_arm_cmpdf2.o)
-                0x00000000080071e0                __gtdf2
-                0x00000000080071e0                __gedf2
-                0x00000000080071e8                __ltdf2
-                0x00000000080071e8                __ledf2
-                0x00000000080071f0                __cmpdf2
-                0x00000000080071f0                __eqdf2
-                0x00000000080071f0                __nedf2
-                0x0000000008007278                __aeabi_cdrcmple
-                0x0000000008007294                __aeabi_cdcmple
-                0x0000000008007294                __aeabi_cdcmpeq
-                0x00000000080072ac                __aeabi_dcmpeq
-                0x00000000080072c4                __aeabi_dcmplt
-                0x00000000080072dc                __aeabi_dcmple
-                0x00000000080072f4                __aeabi_dcmpge
-                0x000000000800730c                __aeabi_dcmpgt
+                0x0000000008005fc0                TLC_2016B_initialize
+                0x0000000008006368                TLC_2016B_terminate
+ .text          0x0000000008006374       0xa0 obj/rt_urand_Upu32_Yd_f_pw.o
+                0x0000000008006374                rt_urand_Upu32_Yd_f_pw
+ *fill*         0x0000000008006414        0x4 
+ .text          0x0000000008006418      0x494 obj/TrafficLightController.o
+                0x0000000008006418                TrafficLightController_Init
+                0x0000000008006450                TrafficLightController
+                0x0000000008006888                TrafficLightControll_initialize
+ .text          0x00000000080068ac       0x38 obj/memset.o
+                0x00000000080068ac                memset
+ .text          0x00000000080068e4       0x14 obj/startup_stm32f2xx.o
+ .text          0x00000000080068f8      0x41c libgcc.a(_arm_addsubdf3.o)
+                0x00000000080068f8                __aeabi_drsub
+                0x0000000008006900                __aeabi_dsub
+                0x0000000008006900                __subdf3
+                0x0000000008006904                __adddf3
+                0x0000000008006904                __aeabi_dadd
+                0x0000000008006c14                __aeabi_ui2d
+                0x0000000008006c14                __floatunsidf
+                0x0000000008006c38                __floatsidf
+                0x0000000008006c38                __aeabi_i2d
+                0x0000000008006c60                __extendsfdf2
+                0x0000000008006c60                __aeabi_f2d
+                0x0000000008006ca0                __aeabi_ul2d
+                0x0000000008006ca0                __floatundidf
+                0x0000000008006cb4                __floatdidf
+                0x0000000008006cb4                __aeabi_l2d
+ .text          0x0000000008006d14      0x49c libgcc.a(_arm_muldivdf3.o)
+                0x0000000008006d14                __aeabi_dmul
+                0x0000000008006d14                __muldf3
+                0x0000000008006fa4                __aeabi_ddiv
+                0x0000000008006fa4                __divdf3
+ .text          0x00000000080071b0      0x144 libgcc.a(_arm_cmpdf2.o)
+                0x00000000080071b0                __gtdf2
+                0x00000000080071b0                __gedf2
+                0x00000000080071b8                __ltdf2
+                0x00000000080071b8                __ledf2
+                0x00000000080071c0                __cmpdf2
+                0x00000000080071c0                __eqdf2
+                0x00000000080071c0                __nedf2
+                0x0000000008007248                __aeabi_cdrcmple
+                0x0000000008007264                __aeabi_cdcmple
+                0x0000000008007264                __aeabi_cdcmpeq
+                0x000000000800727c                __aeabi_dcmpeq
+                0x0000000008007294                __aeabi_dcmplt
+                0x00000000080072ac                __aeabi_dcmple
+                0x00000000080072c4                __aeabi_dcmpge
+                0x00000000080072dc                __aeabi_dcmpgt
  *(.text*)
  .text.Reset_Handler
-                0x0000000008007324       0x44 obj/startup_stm32f2xx.o
-                0x0000000008007324                Reset_Handler
+                0x00000000080072f4       0x44 obj/startup_stm32f2xx.o
+                0x00000000080072f4                Reset_Handler
  .text.Default_Handler
-                0x0000000008007368        0x2 obj/startup_stm32f2xx.o
-                0x0000000008007368                RTC_Alarm_IRQHandler
-                0x0000000008007368                HASH_RNG_IRQHandler
-                0x0000000008007368                EXTI2_IRQHandler
-                0x0000000008007368                TIM8_CC_IRQHandler
-                0x0000000008007368                TIM1_CC_IRQHandler
-                0x0000000008007368                DMA2_Stream5_IRQHandler
-                0x0000000008007368                DMA1_Stream5_IRQHandler
-                0x0000000008007368                PVD_IRQHandler
-                0x0000000008007368                SDIO_IRQHandler
-                0x0000000008007368                TAMP_STAMP_IRQHandler
-                0x0000000008007368                CAN2_RX1_IRQHandler
-                0x0000000008007368                EXTI3_IRQHandler
-                0x0000000008007368                TIM8_TRG_COM_TIM14_IRQHandler
-                0x0000000008007368                TIM1_UP_TIM10_IRQHandler
-                0x0000000008007368                TIM8_UP_TIM13_IRQHandler
-                0x0000000008007368                I2C3_ER_IRQHandler
-                0x0000000008007368                EXTI0_IRQHandler
-                0x0000000008007368                I2C2_EV_IRQHandler
-                0x0000000008007368                DMA1_Stream2_IRQHandler
-                0x0000000008007368                OTG_HS_WKUP_IRQHandler
-                0x0000000008007368                CAN2_SCE_IRQHandler
-                0x0000000008007368                DMA2_Stream2_IRQHandler
-                0x0000000008007368                SPI1_IRQHandler
-                0x0000000008007368                TIM6_DAC_IRQHandler
-                0x0000000008007368                TIM1_BRK_TIM9_IRQHandler
-                0x0000000008007368                DCMI_IRQHandler
-                0x0000000008007368                CAN2_RX0_IRQHandler
-                0x0000000008007368                DMA2_Stream3_IRQHandler
-                0x0000000008007368                USART6_IRQHandler
-                0x0000000008007368                USART3_IRQHandler
-                0x0000000008007368                CRYP_IRQHandler
-                0x0000000008007368                CAN1_RX1_IRQHandler
-                0x0000000008007368                UART5_IRQHandler
-                0x0000000008007368                DMA2_Stream0_IRQHandler
-                0x0000000008007368                TIM4_IRQHandler
-                0x0000000008007368                I2C1_EV_IRQHandler
-                0x0000000008007368                DMA1_Stream6_IRQHandler
-                0x0000000008007368                DMA1_Stream1_IRQHandler
-                0x0000000008007368                UART4_IRQHandler
-                0x0000000008007368                TIM3_IRQHandler
-                0x0000000008007368                RCC_IRQHandler
-                0x0000000008007368                TIM8_BRK_TIM12_IRQHandler
-                0x0000000008007368                Default_Handler
-                0x0000000008007368                EXTI15_10_IRQHandler
-                0x0000000008007368                ADC_IRQHandler
-                0x0000000008007368                DMA1_Stream7_IRQHandler
-                0x0000000008007368                TIM7_IRQHandler
-                0x0000000008007368                CAN2_TX_IRQHandler
-                0x0000000008007368                DMA2_Stream7_IRQHandler
-                0x0000000008007368                I2C3_EV_IRQHandler
-                0x0000000008007368                EXTI9_5_IRQHandler
-                0x0000000008007368                ETH_WKUP_IRQHandler
-                0x0000000008007368                SPI2_IRQHandler
-                0x0000000008007368                OTG_HS_EP1_IN_IRQHandler
-                0x0000000008007368                DMA1_Stream0_IRQHandler
-                0x0000000008007368                CAN1_TX_IRQHandler
-                0x0000000008007368                EXTI4_IRQHandler
-                0x0000000008007368                FSMC_IRQHandler
-                0x0000000008007368                ETH_IRQHandler
-                0x0000000008007368                OTG_HS_EP1_OUT_IRQHandler
-                0x0000000008007368                WWDG_IRQHandler
-                0x0000000008007368                TIM2_IRQHandler
-                0x0000000008007368                OTG_FS_WKUP_IRQHandler
-                0x0000000008007368                TIM1_TRG_COM_TIM11_IRQHandler
-                0x0000000008007368                OTG_HS_IRQHandler
-                0x0000000008007368                EXTI1_IRQHandler
-                0x0000000008007368                USART2_IRQHandler
-                0x0000000008007368                I2C2_ER_IRQHandler
-                0x0000000008007368                DMA2_Stream1_IRQHandler
-                0x0000000008007368                CAN1_SCE_IRQHandler
-                0x0000000008007368                FLASH_IRQHandler
-                0x0000000008007368                DMA2_Stream4_IRQHandler
-                0x0000000008007368                USART1_IRQHandler
-                0x0000000008007368                OTG_FS_IRQHandler
-                0x0000000008007368                SPI3_IRQHandler
-                0x0000000008007368                DMA1_Stream4_IRQHandler
-                0x0000000008007368                I2C1_ER_IRQHandler
-                0x0000000008007368                DMA2_Stream6_IRQHandler
-                0x0000000008007368                DMA1_Stream3_IRQHandler
+                0x0000000008007338        0x2 obj/startup_stm32f2xx.o
+                0x0000000008007338                RTC_Alarm_IRQHandler
+                0x0000000008007338                HASH_RNG_IRQHandler
+                0x0000000008007338                EXTI2_IRQHandler
+                0x0000000008007338                TIM8_CC_IRQHandler
+                0x0000000008007338                TIM1_CC_IRQHandler
+                0x0000000008007338                DMA2_Stream5_IRQHandler
+                0x0000000008007338                DMA1_Stream5_IRQHandler
+                0x0000000008007338                PVD_IRQHandler
+                0x0000000008007338                SDIO_IRQHandler
+                0x0000000008007338                TAMP_STAMP_IRQHandler
+                0x0000000008007338                CAN2_RX1_IRQHandler
+                0x0000000008007338                EXTI3_IRQHandler
+                0x0000000008007338                TIM8_TRG_COM_TIM14_IRQHandler
+                0x0000000008007338                TIM1_UP_TIM10_IRQHandler
+                0x0000000008007338                TIM8_UP_TIM13_IRQHandler
+                0x0000000008007338                I2C3_ER_IRQHandler
+                0x0000000008007338                EXTI0_IRQHandler
+                0x0000000008007338                I2C2_EV_IRQHandler
+                0x0000000008007338                DMA1_Stream2_IRQHandler
+                0x0000000008007338                OTG_HS_WKUP_IRQHandler
+                0x0000000008007338                CAN2_SCE_IRQHandler
+                0x0000000008007338                DMA2_Stream2_IRQHandler
+                0x0000000008007338                SPI1_IRQHandler
+                0x0000000008007338                TIM6_DAC_IRQHandler
+                0x0000000008007338                TIM1_BRK_TIM9_IRQHandler
+                0x0000000008007338                DCMI_IRQHandler
+                0x0000000008007338                CAN2_RX0_IRQHandler
+                0x0000000008007338                DMA2_Stream3_IRQHandler
+                0x0000000008007338                USART6_IRQHandler
+                0x0000000008007338                USART3_IRQHandler
+                0x0000000008007338                CRYP_IRQHandler
+                0x0000000008007338                CAN1_RX1_IRQHandler
+                0x0000000008007338                UART5_IRQHandler
+                0x0000000008007338                DMA2_Stream0_IRQHandler
+                0x0000000008007338                TIM4_IRQHandler
+                0x0000000008007338                I2C1_EV_IRQHandler
+                0x0000000008007338                DMA1_Stream6_IRQHandler
+                0x0000000008007338                DMA1_Stream1_IRQHandler
+                0x0000000008007338                UART4_IRQHandler
+                0x0000000008007338                TIM3_IRQHandler
+                0x0000000008007338                RCC_IRQHandler
+                0x0000000008007338                TIM8_BRK_TIM12_IRQHandler
+                0x0000000008007338                Default_Handler
+                0x0000000008007338                EXTI15_10_IRQHandler
+                0x0000000008007338                ADC_IRQHandler
+                0x0000000008007338                DMA1_Stream7_IRQHandler
+                0x0000000008007338                TIM7_IRQHandler
+                0x0000000008007338                CAN2_TX_IRQHandler
+                0x0000000008007338                DMA2_Stream7_IRQHandler
+                0x0000000008007338                I2C3_EV_IRQHandler
+                0x0000000008007338                EXTI9_5_IRQHandler
+                0x0000000008007338                ETH_WKUP_IRQHandler
+                0x0000000008007338                SPI2_IRQHandler
+                0x0000000008007338                OTG_HS_EP1_IN_IRQHandler
+                0x0000000008007338                DMA1_Stream0_IRQHandler
+                0x0000000008007338                CAN1_TX_IRQHandler
+                0x0000000008007338                EXTI4_IRQHandler
+                0x0000000008007338                FSMC_IRQHandler
+                0x0000000008007338                ETH_IRQHandler
+                0x0000000008007338                OTG_HS_EP1_OUT_IRQHandler
+                0x0000000008007338                WWDG_IRQHandler
+                0x0000000008007338                TIM2_IRQHandler
+                0x0000000008007338                OTG_FS_WKUP_IRQHandler
+                0x0000000008007338                TIM1_TRG_COM_TIM11_IRQHandler
+                0x0000000008007338                OTG_HS_IRQHandler
+                0x0000000008007338                EXTI1_IRQHandler
+                0x0000000008007338                USART2_IRQHandler
+                0x0000000008007338                I2C2_ER_IRQHandler
+                0x0000000008007338                DMA2_Stream1_IRQHandler
+                0x0000000008007338                CAN1_SCE_IRQHandler
+                0x0000000008007338                FLASH_IRQHandler
+                0x0000000008007338                DMA2_Stream4_IRQHandler
+                0x0000000008007338                USART1_IRQHandler
+                0x0000000008007338                OTG_FS_IRQHandler
+                0x0000000008007338                SPI3_IRQHandler
+                0x0000000008007338                DMA1_Stream4_IRQHandler
+                0x0000000008007338                I2C1_ER_IRQHandler
+                0x0000000008007338                DMA2_Stream6_IRQHandler
+                0x0000000008007338                DMA1_Stream3_IRQHandler
  *(.rodata)
- .rodata        0x000000000800736a        0x2 obj/const_params.o
-                0x000000000800736a                rtCP_pooled_DW8BfQUitOnV
-                0x000000000800736b                rtCP_pooled_IFpGdxwf999t
- .rodata        0x000000000800736c        0x4 obj/TLC_2016B.o
-                0x000000000800736c                TLC_2016B_M
+ .rodata        0x000000000800733a        0x2 obj/const_params.o
+                0x000000000800733a                rtCP_pooled_DW8BfQUitOnV
+                0x000000000800733b                rtCP_pooled_IFpGdxwf999t
+ .rodata        0x000000000800733c        0x4 obj/TLC_2016B.o
+                0x000000000800733c                TLC_2016B_M
  *(.rodata*)
  *(.glue_7)
- .glue_7        0x0000000008007370        0x0 linker stubs
+ .glue_7        0x0000000008007340        0x0 linker stubs
  *(.glue_7t)
- .glue_7t       0x0000000008007370        0x0 linker stubs
+ .glue_7t       0x0000000008007340        0x0 linker stubs
  *(.init)
  *(.fini)
-                0x0000000008007370                . = ALIGN (0x4)
-                0x0000000008007370                _etext = .
+                0x0000000008007340                . = ALIGN (0x4)
+                0x0000000008007340                _etext = .
 
-.vfp11_veneer   0x0000000008007370        0x0
- .vfp11_veneer  0x0000000008007370        0x0 linker stubs
+.vfp11_veneer   0x0000000008007340        0x0
+ .vfp11_veneer  0x0000000008007340        0x0 linker stubs
 
-.v4_bx          0x0000000008007370        0x0
- .v4_bx         0x0000000008007370        0x0 linker stubs
+.v4_bx          0x0000000008007340        0x0
+ .v4_bx         0x0000000008007340        0x0 linker stubs
 
-.iplt           0x0000000008007370        0x0
- .iplt          0x0000000008007370        0x0 obj/main.o
+.iplt           0x0000000008007340        0x0
+ .iplt          0x0000000008007340        0x0 obj/main.o
 
-.rel.dyn        0x0000000008007370        0x0
- .rel.iplt      0x0000000008007370        0x0 obj/main.o
+.rel.dyn        0x0000000008007340        0x0
+ .rel.iplt      0x0000000008007340        0x0 obj/main.o
 
 .ARM.extab
  *(.ARM.extab* .gnu.linkonce.armextab.*)
 
-.ARM            0x0000000008007370        0x0
-                0x0000000008007370                __exidx_start = .
+.ARM            0x0000000008007340        0x0
+                0x0000000008007340                __exidx_start = .
  *(.ARM.exidx*)
-                0x0000000008007370                __exidx_end = .
+                0x0000000008007340                __exidx_end = .
 
 .ARM.attributes
-                0x0000000008007370       0x33
+                0x0000000008007340       0x33
  *(.ARM.attributes)
  .ARM.attributes
-                0x0000000008007370       0x33 obj/main.o
+                0x0000000008007340       0x33 obj/main.o
  .ARM.attributes
-                0x00000000080073a3       0x33 obj/system_stm32f2xx.o
+                0x0000000008007373       0x33 obj/system_stm32f2xx.o
  .ARM.attributes
-                0x00000000080073d6       0x33 obj/stm32f2xx_gpio.o
+                0x00000000080073a6       0x33 obj/stm32f2xx_gpio.o
  .ARM.attributes
-                0x0000000008007409       0x33 obj/stm32f2xx_rcc.o
+                0x00000000080073d9       0x33 obj/stm32f2xx_rcc.o
  .ARM.attributes
-                0x000000000800743c       0x33 obj/stm32f2xx_it.o
+                0x000000000800740c       0x33 obj/stm32f2xx_it.o
  .ARM.attributes
-                0x000000000800746f       0x33 obj/stm32f2xx_adc.o
+                0x000000000800743f       0x33 obj/stm32f2xx_adc.o
  .ARM.attributes
-                0x00000000080074a2       0x33 obj/stm32f2xx_tim.o
+                0x0000000008007472       0x33 obj/stm32f2xx_tim.o
  .ARM.attributes
-                0x00000000080074d5       0x33 obj/stm32f2xx_dma.o
+                0x00000000080074a5       0x33 obj/stm32f2xx_dma.o
  .ARM.attributes
-                0x0000000008007508       0x33 obj/stm32f2xx_can.o
+                0x00000000080074d8       0x33 obj/stm32f2xx_can.o
  .ARM.attributes
-                0x000000000800753b       0x33 obj/stm32f2xx_dcmi.o
+                0x000000000800750b       0x33 obj/stm32f2xx_dcmi.o
  .ARM.attributes
-                0x000000000800756e       0x33 obj/stm32f2xx_exti.o
+                0x000000000800753e       0x33 obj/stm32f2xx_exti.o
  .ARM.attributes
-                0x00000000080075a1       0x33 obj/stm32f2xx_syscfg.o
+                0x0000000008007571       0x33 obj/stm32f2xx_syscfg.o
  .ARM.attributes
-                0x00000000080075d4       0x33 obj/misc.o
+                0x00000000080075a4       0x33 obj/misc.o
  .ARM.attributes
-                0x0000000008007607       0x33 obj/counter.o
+                0x00000000080075d7       0x33 obj/counter.o
  .ARM.attributes
-                0x000000000800763a       0x33 obj/can.o
+                0x000000000800760a       0x33 obj/can.o
  .ARM.attributes
-                0x000000000800766d       0x33 obj/const_params.o
+                0x000000000800763d       0x33 obj/const_params.o
  .ARM.attributes
-                0x00000000080076a0       0x33 obj/TLC_2016B.o
+                0x0000000008007670       0x33 obj/TLC_2016B.o
  .ARM.attributes
-                0x00000000080076d3       0x33 obj/rt_urand_Upu32_Yd_f_pw.o
+                0x00000000080076a3       0x33 obj/rt_urand_Upu32_Yd_f_pw.o
  .ARM.attributes
-                0x0000000008007706       0x33 obj/TrafficLightController.o
+                0x00000000080076d6       0x33 obj/TrafficLightController.o
  .ARM.attributes
-                0x0000000008007739       0x33 obj/memset.o
+                0x0000000008007709       0x33 obj/memset.o
  .ARM.attributes
-                0x000000000800776c       0x21 obj/startup_stm32f2xx.o
+                0x000000000800773c       0x21 obj/startup_stm32f2xx.o
  .ARM.attributes
-                0x000000000800778d       0x18 libgcc.a(_arm_addsubdf3.o)
+                0x000000000800775d       0x18 libgcc.a(_arm_addsubdf3.o)
  .ARM.attributes
-                0x00000000080077a5       0x18 libgcc.a(_arm_muldivdf3.o)
+                0x0000000008007775       0x18 libgcc.a(_arm_muldivdf3.o)
  .ARM.attributes
-                0x00000000080077bd       0x18 libgcc.a(_arm_cmpdf2.o)
+                0x000000000800778d       0x18 libgcc.a(_arm_cmpdf2.o)
 
-.preinit_array  0x0000000008007370        0x0
+.preinit_array  0x0000000008007340        0x0
                 [!provide]                        PROVIDE (__preinit_array_start, .)
  *(.preinit_array*)
                 [!provide]                        PROVIDE (__preinit_array_end, .)
 
-.init_array     0x0000000008007370        0x0
+.init_array     0x0000000008007340        0x0
                 [!provide]                        PROVIDE (__init_array_start, .)
  *(SORT(.init_array.*))
  *(.init_array*)
                 [!provide]                        PROVIDE (__init_array_end, .)
 
-.fini_array     0x0000000008007370        0x0
+.fini_array     0x0000000008007340        0x0
                 [!provide]                        PROVIDE (__fini_array_start, .)
  *(.fini_array*)
  *(SORT(.fini_array.*))
                 [!provide]                        PROVIDE (__fini_array_end, .)
-                0x0000000008007370                _sidata = .
+                0x0000000008007340                _sidata = .
 
-.data           0x0000000020000000       0x24 load address 0x00000000080077d5
+.data           0x0000000020000000       0x24 load address 0x00000000080077a5
                 0x0000000020000000                . = ALIGN (0x4)
                 0x0000000020000000                _sdata = .
  *(.data)
@@ -605,11 +605,11 @@ Linker script and memory map
                 0x0000000020000024                . = ALIGN (0x4)
                 0x0000000020000024                _edata = .
 
-.igot.plt       0x0000000020000024        0x0 load address 0x00000000080077fc
+.igot.plt       0x0000000020000024        0x0 load address 0x00000000080077cc
  .igot.plt      0x0000000020000024        0x0 obj/main.o
                 0x0000000020000024                . = ALIGN (0x4)
 
-.bss            0x0000000020000028      0x114 load address 0x0000000008007800
+.bss            0x0000000020000028      0x114 load address 0x00000000080077d0
                 0x0000000020000028                _sbss = .
                 0x0000000020000028                __bss_start__ = _sbss
  *(.bss)
@@ -637,50 +637,7 @@ Linker script and memory map
  .bss           0x000000002000006c        0x0 obj/const_params.o
  *fill*         0x000000002000006c        0x4 
  .bss           0x0000000020000070       0xcc obj/TLC_2016B.o
-                0x0000000020000070                countSD1_E
-                0x0000000020000078                countSD1_N
-                0x0000000020000080                countSD1_S
-                0x0000000020000088                countSD1_W
-                0x0000000020000090                lightSD1_E
-                0x0000000020000091                lightSD1_N
-                0x0000000020000092                lightSD1_S
-                0x0000000020000093                lightSD1_W
-                0x0000000020000094                tag_N
-                0x0000000020000095                tag_S
-                0x0000000020000096                tag_W
-                0x0000000020000097                tag_E
-                0x0000000020000098                lgtGrVd_E
-                0x0000000020000099                sensor1Value_E
-                0x000000002000009a                sensor1Vd_E
-                0x000000002000009b                sensor2Value_E
-                0x000000002000009c                sensor2Vd_E
-                0x000000002000009d                sensor3Value_E
-                0x000000002000009e                sensor3Vd_E
-                0x000000002000009f                vdSD1_E
-                0x00000000200000a0                lgtGrVd_N
-                0x00000000200000a1                sensor1Value_N
-                0x00000000200000a2                sensor1Vd_N
-                0x00000000200000a3                sensor2Value_N
-                0x00000000200000a4                sensor2Vd_N
-                0x00000000200000a5                sensor3Value_N
-                0x00000000200000a6                sensor3Vd_N
-                0x00000000200000a7                vdSD1_N
-                0x00000000200000a8                lgtGrVd_S
-                0x00000000200000a9                sensor1Value_S
-                0x00000000200000aa                sensor1Vd_S
-                0x00000000200000ab                sensor2Value_S
-                0x00000000200000ac                sensor2Vd_S
-                0x00000000200000ad                sensor3Value_S
-                0x00000000200000ae                sensor3Vd_S
-                0x00000000200000af                vdSD1_S
-                0x00000000200000b0                lgtGrVd_W
-                0x00000000200000b1                sensor1Value_W
-                0x00000000200000b2                sensor1Vd_W
-                0x00000000200000b3                sensor2Value_W
-                0x00000000200000b4                sensor2Vd_W
-                0x00000000200000b5                sensor3Value_W
-                0x00000000200000b6                sensor3Vd_W
-                0x00000000200000b7                vdSD1_W
+                0x0000000020000070                TLC_2016B_B
                 0x00000000200000b8                TLC_2016B_DW
                 0x0000000020000138                TLC_2016B_M_
  .bss           0x000000002000013c        0x0 obj/rt_urand_Upu32_Yd_f_pw.o
@@ -699,7 +656,7 @@ Linker script and memory map
                 [!provide]                        PROVIDE (_end, _ebss)
 
 ._user_heap_stack
-                0x000000002000013c      0x100 load address 0x0000000008007914
+                0x000000002000013c      0x100 load address 0x00000000080078e4
                 0x000000002000013c                . = ALIGN (0x4)
                 0x000000002000013c                . = (. + _Min_Heap_Size)
                 0x000000002000023c                . = (. + _Min_Stack_Size)
@@ -735,7 +692,7 @@ LOAD obj/startup_stm32f2xx.o
 LOAD libgcc.a
 OUTPUT(./main.out elf32-littlearm)
 
-.debug_info     0x0000000000000000     0x7fcb
+.debug_info     0x0000000000000000     0x7f14
  .debug_info    0x0000000000000000       0x8f obj/main.o
  .debug_info    0x000000000000008f      0x3d2 obj/system_stm32f2xx.o
  .debug_info    0x0000000000000461      0x5f0 obj/stm32f2xx_gpio.o
@@ -752,14 +709,14 @@ OUTPUT(./main.out elf32-littlearm)
  .debug_info    0x00000000000062de      0x42d obj/counter.o
  .debug_info    0x000000000000670b      0xac2 obj/can.o
  .debug_info    0x00000000000071cd       0x96 obj/const_params.o
- .debug_info    0x0000000000007263      0x624 obj/TLC_2016B.o
- .debug_info    0x0000000000007887       0xc8 obj/rt_urand_Upu32_Yd_f_pw.o
- .debug_info    0x000000000000794f      0x3af obj/TrafficLightController.o
- .debug_info    0x0000000000007cfe       0xa0 obj/memset.o
- .debug_info    0x0000000000007d9e       0x62 obj/startup_stm32f2xx.o
- .debug_info    0x0000000000007e00       0x99 libgcc.a(_arm_addsubdf3.o)
- .debug_info    0x0000000000007e99       0x99 libgcc.a(_arm_muldivdf3.o)
- .debug_info    0x0000000000007f32       0x99 libgcc.a(_arm_cmpdf2.o)
+ .debug_info    0x0000000000007263      0x56d obj/TLC_2016B.o
+ .debug_info    0x00000000000077d0       0xc8 obj/rt_urand_Upu32_Yd_f_pw.o
+ .debug_info    0x0000000000007898      0x3af obj/TrafficLightController.o
+ .debug_info    0x0000000000007c47       0xa0 obj/memset.o
+ .debug_info    0x0000000000007ce7       0x62 obj/startup_stm32f2xx.o
+ .debug_info    0x0000000000007d49       0x99 libgcc.a(_arm_addsubdf3.o)
+ .debug_info    0x0000000000007de2       0x99 libgcc.a(_arm_muldivdf3.o)
+ .debug_info    0x0000000000007e7b       0x99 libgcc.a(_arm_cmpdf2.o)
 
 .debug_abbrev   0x0000000000000000     0x1834
  .debug_abbrev  0x0000000000000000       0x44 obj/main.o
@@ -837,7 +794,7 @@ OUTPUT(./main.out elf32-littlearm)
  .debug_aranges
                 0x00000000000002e0       0x20 libgcc.a(_arm_cmpdf2.o)
 
-.debug_line     0x0000000000000000     0x20f9
+.debug_line     0x0000000000000000     0x20f2
  .debug_line    0x0000000000000000       0x35 obj/main.o
  .debug_line    0x0000000000000035      0x114 obj/system_stm32f2xx.o
  .debug_line    0x0000000000000149      0x17a obj/stm32f2xx_gpio.o
@@ -854,16 +811,16 @@ OUTPUT(./main.out elf32-littlearm)
  .debug_line    0x000000000000163e       0xe3 obj/counter.o
  .debug_line    0x0000000000001721      0x160 obj/can.o
  .debug_line    0x0000000000001881       0x49 obj/const_params.o
- .debug_line    0x00000000000018ca      0x151 obj/TLC_2016B.o
- .debug_line    0x0000000000001a1b       0x6d obj/rt_urand_Upu32_Yd_f_pw.o
- .debug_line    0x0000000000001a88      0x1da obj/TrafficLightController.o
- .debug_line    0x0000000000001c62       0x77 obj/memset.o
- .debug_line    0x0000000000001cd9       0x75 obj/startup_stm32f2xx.o
- .debug_line    0x0000000000001d4e      0x16f libgcc.a(_arm_addsubdf3.o)
- .debug_line    0x0000000000001ebd      0x187 libgcc.a(_arm_muldivdf3.o)
- .debug_line    0x0000000000002044       0xb5 libgcc.a(_arm_cmpdf2.o)
+ .debug_line    0x00000000000018ca      0x14a obj/TLC_2016B.o
+ .debug_line    0x0000000000001a14       0x6d obj/rt_urand_Upu32_Yd_f_pw.o
+ .debug_line    0x0000000000001a81      0x1da obj/TrafficLightController.o
+ .debug_line    0x0000000000001c5b       0x77 obj/memset.o
+ .debug_line    0x0000000000001cd2       0x75 obj/startup_stm32f2xx.o
+ .debug_line    0x0000000000001d47      0x16f libgcc.a(_arm_addsubdf3.o)
+ .debug_line    0x0000000000001eb6      0x187 libgcc.a(_arm_muldivdf3.o)
+ .debug_line    0x000000000000203d       0xb5 libgcc.a(_arm_cmpdf2.o)
 
-.debug_str      0x0000000000000000     0x3a8a
+.debug_str      0x0000000000000000     0x3aa4
  .debug_str     0x0000000000000000       0xdb obj/main.o
                                         0x114 (size before relaxing)
  .debug_str     0x00000000000000db      0x1c8 obj/system_stm32f2xx.o
@@ -896,13 +853,13 @@ OUTPUT(./main.out elf32-littlearm)
                                         0xb99 (size before relaxing)
  .debug_str     0x000000000000334c       0x5e obj/const_params.o
                                         0x12f (size before relaxing)
- .debug_str     0x00000000000033aa      0x4b3 obj/TLC_2016B.o
-                                        0x656 (size before relaxing)
- .debug_str     0x000000000000385d       0x36 obj/rt_urand_Upu32_Yd_f_pw.o
+ .debug_str     0x00000000000033aa      0x4cd obj/TLC_2016B.o
+                                        0x670 (size before relaxing)
+ .debug_str     0x0000000000003877       0x36 obj/rt_urand_Upu32_Yd_f_pw.o
                                         0x124 (size before relaxing)
- .debug_str     0x0000000000003893      0x1d5 obj/TrafficLightController.o
+ .debug_str     0x00000000000038ad      0x1d5 obj/TrafficLightController.o
                                         0x453 (size before relaxing)
- .debug_str     0x0000000000003a68       0x22 obj/memset.o
+ .debug_str     0x0000000000003a82       0x22 obj/memset.o
                                          0xb3 (size before relaxing)
 
 .comment        0x0000000000000000       0x38
