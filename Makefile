@@ -71,7 +71,8 @@ C_OBJECTS += $(OBJ)/stm32f2xx_syscfg.o
 C_OBJECTS += $(OBJ)/misc.o
 C_OBJECTS += $(OBJ)/counter.o
 C_OBJECTS += $(OBJ)/can.o
-C_OBJECTS += $(OBJ)/TLC.o
+C_OBJECTS += $(OBJ)/const_params.o
+C_OBJECTS += $(OBJ)/TLC_2016B.o
 C_OBJECTS += $(OBJ)/rt_urand_Upu32_Yd_f_pw.o
 C_OBJECTS += $(OBJ)/TrafficLightController.o
 C_OBJECTS += $(OBJ)/memset.o
@@ -128,7 +129,8 @@ $(C_OBJECTS): main.c lib/system_stm32f2xx.c
 	$(CC) $(CFLAGS) -o $(OBJ)/misc.o  		$(LIBRARYSRC)/misc.c
 	$(CC) $(CFLAGS) -o $(OBJ)/counter.o         	$(SRC)/counter.c
 	$(CC) $(CFLAGS) -o $(OBJ)/can.o         	$(SRC)/can.c
-	$(CC) $(CFLAGS) -o $(OBJ)/TLC.o     		$(SRC)/TLC_2016B.c
+	$(CC) $(CFLAGS) -o $(OBJ)/const_params.o       	$(SRC)/const_params.c
+	$(CC) $(CFLAGS) -o $(OBJ)/TLC_2016B.o  		$(SRC)/TLC_2016B.c
 	$(CC) $(CFLAGS) -o $(OBJ)/rt_urand_Upu32_Yd_f_pw.o     		$(SRC)/rt_urand_Upu32_Yd_f_pw.c
 	$(CC) $(CFLAGS) -o $(OBJ)/TrafficLightController.o		$(SRC)/TrafficLightController.c
 	$(CC) $(CFLAGS) -o $(OBJ)/memset.o	  	$(SRC)/memset.c

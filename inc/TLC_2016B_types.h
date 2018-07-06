@@ -3,9 +3,9 @@
  *
  * Code generated for Simulink model 'TLC_2016B'.
  *
- * Model version                  : 1.147
+ * Model version                  : 1.153
  * Simulink Coder version         : 8.11 (R2016b) 25-Aug-2016
- * C/C++ source code generated on : Fri Jun 29 10:25:36 2018
+ * C/C++ source code generated on : Fri Jul 06 10:43:42 2018
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: Intel->x86-64 (Windows64)

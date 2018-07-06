@@ -3,9 +3,9 @@
  *
  * Code generated for Simulink model 'TLC_2016B'.
  *
- * Model version                  : 1.147
+ * Model version                  : 1.153
  * Simulink Coder version         : 8.11 (R2016b) 25-Aug-2016
- * C/C++ source code generated on : Fri Jun 29 10:25:36 2018
+ * C/C++ source code generated on : Fri Jul 06 10:43:42 2018
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: Intel->x86-64 (Windows64)
@@ -42,27 +42,22 @@
 
 /* Block signals (auto storage) */
 typedef struct {
-  boolean_T countSD1B1;                /* '<S1>/TrafficLightController' */
-  boolean_T countSD1B2;                /* '<S1>/TrafficLightController' */
-  boolean_T lightGrSD1;                /* '<S1>/TrafficLightController' */
-  boolean_T lightOrSD1;                /* '<S1>/TrafficLightController' */
-  boolean_T countSD1B1_j;              /* '<S2>/TrafficLightController' */
-  boolean_T countSD1B2_i;              /* '<S2>/TrafficLightController' */
-  boolean_T lightGrSD1_h;              /* '<S2>/TrafficLightController' */
-  boolean_T lightOrSD1_h;              /* '<S2>/TrafficLightController' */
+  boolean_T countSD1B1_e;              /* '<S1>/TrafficLightController' */
+  boolean_T countSD1B2_n;              /* '<S1>/TrafficLightController' */
+  boolean_T lightGrSD1_k;              /* '<S1>/TrafficLightController' */
+  boolean_T lightOrSD1_e;              /* '<S1>/TrafficLightController' */
   boolean_T countSD1B1_h;              /* '<S3>/TrafficLightController' */
   boolean_T countSD1B2_p;              /* '<S3>/TrafficLightController' */
   boolean_T lightGrSD1_i;              /* '<S3>/TrafficLightController' */
   boolean_T lightOrSD1_p;              /* '<S3>/TrafficLightController' */
   boolean_T countSD1B1_g;              /* '<S4>/TrafficLightController' */
-  boolean_T countSD1B2_ib;             /* '<S4>/TrafficLightController' */
+  boolean_T countSD1B2_i;              /* '<S4>/TrafficLightController' */
   boolean_T lightGrSD1_e;              /* '<S4>/TrafficLightController' */
   boolean_T lightOrSD1_l;              /* '<S4>/TrafficLightController' */
 } B_TLC_2016B_T;
 
 /* Block states (auto storage) for system '<Root>' */
 typedef struct {
-  boolean_T Delay_1_DSTATE;            /* '<Root>/Delay' */
   boolean_T Delay_11_DSTATE;           /* '<Root>/Delay' */
   boolean_T Delay_16_DSTATE;           /* '<Root>/Delay' */
   boolean_T Delay_6_DSTATE;            /* '<Root>/Delay' */
@@ -82,6 +77,30 @@ extern B_TLC_2016B_T TLC_2016B_B;
 
 /* Block states (auto storage) */
 extern DW_TLC_2016B_T TLC_2016B_DW;
+
+/*
+ * Exported Global Signals
+ *
+ * Note: Exported global signals are block signals with an exported global
+ * storage class designation.  Code generation will declare the memory for
+ * these signals and export their symbols.
+ *
+ */
+extern boolean_T tag;                  /* '<Root>/Constant' */
+extern boolean_T lgtGrVd;              /* '<S2>/LgtGrVd_' */
+extern boolean_T lgtReVd;              /* '<S2>/LgtReVd_' */
+extern boolean_T lgtOrVd;              /* '<S2>/LightOrVd_' */
+extern boolean_T sensor1Value;         /* '<S2>/Sensor1Value_' */
+extern boolean_T sensor1Vd;            /* '<S2>/Sensor1Vd_' */
+extern boolean_T sensor2Value;         /* '<S2>/Sensor2Value_' */
+extern boolean_T sensor2Vd;            /* '<S2>/Sensor2Vd_' */
+extern boolean_T sensor3Value;         /* '<S2>/Sensor3Value_' */
+extern boolean_T sensor3Vd;            /* '<S2>/Sensor3Vd_' */
+extern boolean_T vdSD1;                /* '<S2>/TrafficLightController' */
+extern boolean_T countSD1B1;           /* '<S2>/TrafficLightController' */
+extern boolean_T countSD1B2;           /* '<S2>/TrafficLightController' */
+extern boolean_T lightGrSD1;           /* '<S2>/TrafficLightController' */
+extern boolean_T lightOrSD1;           /* '<S2>/TrafficLightController' */
 
 /* Model entry point functions */
 extern void TLC_2016B_initialize(void);
