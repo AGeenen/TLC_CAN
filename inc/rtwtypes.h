@@ -3,9 +3,9 @@
  *
  * Code generated for Simulink model 'TrafficLightController'.
  *
- * Model version                  : 1.159
+ * Model version                  : 1.195
  * Simulink Coder version         : 8.11 (R2016b) 25-Aug-2016
- * C/C++ source code generated on : Thu Jun 28 10:49:06 2018
+ * C/C++ source code generated on : Fri Jul 06 16:14:13 2018
  */
 
 #ifndef RTWTYPES_H

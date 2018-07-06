@@ -3,9 +3,9 @@
  *
  * Code generated for Simulink model 'TLC_2016B'.
  *
- * Model version                  : 1.223
+ * Model version                  : 1.225
  * Simulink Coder version         : 8.11 (R2016b) 25-Aug-2016
- * C/C++ source code generated on : Fri Jul 06 15:33:34 2018
+ * C/C++ source code generated on : Fri Jul 06 16:14:23 2018
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: Intel->x86-64 (Windows64)
@@ -17,16 +17,22 @@
 #include "TLC_2016B_private.h"
 
 /* Block signals (auto storage) */
+/* Volatile memory section */
 B_TLC_2016B_T TLC_2016B_B;
 
 /* Block states (auto storage) */
+/* Volatile memory section */
 DW_TLC_2016B_T TLC_2016B_DW;
 
 /* Real-time model */
+/* Volatile memory section */
 RT_MODEL_TLC_2016B_T TLC_2016B_M_;
+
+/* Const memory section */
 RT_MODEL_TLC_2016B_T *const TLC_2016B_M = &TLC_2016B_M_;
 
 /* Model step function */
+/* Volatile memory section */
 void TLC_2016B_step(void)
 {
   /* local block i/o variables */
@@ -121,6 +127,7 @@ void TLC_2016B_step(void)
 }
 
 /* Model initialize function */
+/* Volatile memory section */
 void TLC_2016B_initialize(void)
 {
   /* Registration code */
@@ -400,6 +407,7 @@ void TLC_2016B_initialize(void)
 }
 
 /* Model terminate function */
+/* Volatile memory section */
 void TLC_2016B_terminate(void)
 {
   /* (no terminate code required) */

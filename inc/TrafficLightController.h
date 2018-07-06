@@ -3,9 +3,9 @@
  *
  * Code generated for Simulink model 'TrafficLightController'.
  *
- * Model version                  : 1.194
+ * Model version                  : 1.195
  * Simulink Coder version         : 8.11 (R2016b) 25-Aug-2016
- * C/C++ source code generated on : Fri Jul 06 15:05:53 2018
+ * C/C++ source code generated on : Fri Jul 06 16:14:13 2018
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: Intel->x86-64 (Windows64)
@@ -48,10 +48,15 @@ typedef struct {
 } MdlrefDW_TrafficLightControll_T;
 
 /* Model reference registration function */
+/* Volatile memory section */
 extern void TrafficLightControll_initialize(const char_T **rt_errorStatus,
   RT_MODEL_TrafficLightControll_T *const TrafficLightController_M,
   DW_TrafficLightController_f_T *localDW);
+
+/* Volatile memory section */
 extern void TrafficLightController_Init(DW_TrafficLightController_f_T *localDW);
+
+/* Volatile memory section */
 extern void TrafficLightController(const boolean_T *rtu_Sensor1Vd_, const
   boolean_T *rtu_Sensor2Vd_, const boolean_T *rtu_Sensor3Vd_, const boolean_T
   *rtu_lgtVd, const boolean_T *rtu_Sensor1Value_, const boolean_T
