@@ -1,0 +1,8 @@
+#!/bin/bash
+#extract c and h files from generated code
+
+cp -avr 2016b_2/slprj/ert/_sharedutils/*.h inc
+cp -avr	2016b_2/slprj/ert/TrafficLightController/*.h inc
+cp -avr	2016b_2/slprj/ert/TrafficLightController/*.c src
+cp -avr 2016b_2/TLC_2016B_ert_rtw/*.h inc
+cp -avr 2016b_2/TLC_2016B_ert_rtw/*.c src

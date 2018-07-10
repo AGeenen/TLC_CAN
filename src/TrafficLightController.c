@@ -3,12 +3,12 @@
  *
  * Code generated for Simulink model 'TrafficLightController'.
  *
- * Model version                  : 1.195
+ * Model version                  : 1.238
  * Simulink Coder version         : 8.11 (R2016b) 25-Aug-2016
- * C/C++ source code generated on : Fri Jul 06 16:14:13 2018
+ * C/C++ source code generated on : Tue Jul 10 12:24:00 2018
  *
  * Target selection: ert.tlc
- * Embedded hardware selection: Intel->x86-64 (Windows64)
+ * Embedded hardware selection: ARM Compatible->ARM Cortex
  * Code generation objectives: Unspecified
  * Validation result: Not run
  */
@@ -48,10 +48,10 @@ void TrafficLightController(const boolean_T *rtu_Sensor1Vd_, const boolean_T
   *rtu_Sensor2Vd_, const boolean_T *rtu_Sensor3Vd_, const boolean_T *rtu_lgtVd,
   const boolean_T *rtu_Sensor1Value_, const boolean_T *rtu_Sensor2Value_, const
   boolean_T *rtu_Sensor3Value_, const boolean_T *rtu_VdSD2, const real_T
-  *rtu_CountSD2, const uint8_T *rtu_LightSD2_, const boolean_T *rtu_VdOD1, const
-  real_T *rtu_CountOD1, const uint8_T *rtu_LightOD1_, const boolean_T *rtu_VdOD2,
-  const real_T *rtu_CountOD2, const uint8_T *rtu_LightOD2_, const boolean_T
-  *rtu_Tag_, boolean_T *rty_VdSD1, real_T *rty_CountSD1, uint8_T *rty_LightSD1,
+  *rtu_CountSD2, const real_T *rtu_LightSD2_, const boolean_T *rtu_VdOD1, const
+  real_T *rtu_CountOD1, const real_T *rtu_LightOD1_, const boolean_T *rtu_VdOD2,
+  const real_T *rtu_CountOD2, const real_T *rtu_LightOD2_, const boolean_T
+  *rtu_Tag_, boolean_T *rty_VdSD1, real_T *rty_CountSD1, real_T *rty_LightSD1,
   DW_TrafficLightController_f_T *localDW)
 {
   boolean_T rtb_RelationalOperator;
@@ -59,6 +59,7 @@ void TrafficLightController(const boolean_T *rtu_Sensor1Vd_, const boolean_T
   boolean_T rtb_InitPr;
   real_T rtb_countSD;
   real_T rtb_countOD;
+  uint32_T tmp;
 
   /* Sum: '<Root>/Add' incorporates:
    *  DataTypeConversion: '<Root>/Data Type Conversion'
@@ -85,11 +86,11 @@ void TrafficLightController(const boolean_T *rtu_Sensor1Vd_, const boolean_T
   /* Transition: '<S1>:3' */
   /* '<S1>:4:1' sf_internal_predicateOutput = ... */
   /* '<S1>:4:1' TAG==NS&&CountSD+RANDOM>CountOD; */
-  if ((!*rtu_Tag_) && (rtb_countSD + 0.1 > rtb_countOD)) {
+  if ((*rtu_Tag_ == NS) && (rtb_countSD + 0.1 > rtb_countOD)) {
     /* Transition: '<S1>:4' */
     /* Transition: '<S1>:6' */
     /* '<S1>:6:1' InitPr=NS; */
-    rtb_InitPr = false;
+    rtb_InitPr = NS;
 
     /* Transition: '<S1>:11' */
     /* Transition: '<S1>:10' */
@@ -97,27 +98,28 @@ void TrafficLightController(const boolean_T *rtu_Sensor1Vd_, const boolean_T
     /* Transition: '<S1>:5' */
     /* '<S1>:7:1' sf_internal_predicateOutput = ... */
     /* '<S1>:7:1' TAG==EW&&CountSD>CountOD+RANDOM; */
-    if ((*rtu_Tag_) && (rtb_countSD > rtb_countOD + 0.1)) {
+    if ((*rtu_Tag_ == EW) && (rtb_countSD > rtb_countOD + 0.1)) {
       /* Transition: '<S1>:7' */
       /* Transition: '<S1>:9' */
       /* '<S1>:9:1' InitPr=EW; */
-      rtb_InitPr = true;
+      rtb_InitPr = EW;
 
       /* Transition: '<S1>:10' */
     } else {
       /* Transition: '<S1>:8' */
       /* '<S1>:8:1' InitPr=NS; */
-      rtb_InitPr = false;
+      rtb_InitPr = NS;
     }
   }
 
   /* End of Chart: '<Root>/Chart' */
 
   /* RelationalOperator: '<S2>/Relational Operator' incorporates:
+   *  Constant: '<S2>/Constant'
    *  Delay: '<Root>/Delay'
    */
   /* Transition: '<S1>:12' */
-  rtb_RelationalOperator = (localDW->Delay_DSTATE >= 1);
+  rtb_RelationalOperator = (localDW->Delay_DSTATE > 1.0);
 
   /* Logic: '<Root>/Logical Operator' incorporates:
    *  Delay: '<Root>/Delay One Step4'
@@ -159,14 +161,14 @@ void TrafficLightController(const boolean_T *rtu_Sensor1Vd_, const boolean_T
 
     /* Entry 'INIT': '<S3>:23' */
     /* '<S3>:23:1' Light=RE; */
-    *rty_LightSD1 = 1U;
+    *rty_LightSD1 = RE;
   } else {
     switch (localDW->is_c4_TrafficLightController) {
      case TrafficLightContro_IN_EMERGENCY:
       /* During 'EMERGENCY': '<S3>:11' */
       /* '<S3>:6:1' sf_internal_predicateOutput = ... */
-      /* '<S3>:6:1' after(GreenTime,sec); */
-      if (localDW->temporalCounter_i2 >= 40U) {
+      /* '<S3>:6:1' after(GreenTime,msec); */
+      if (localDW->temporalCounter_i2 * 100U >= GreenTime) {
         /* Transition: '<S3>:6' */
         /* Exit Internal 'EMERGENCY': '<S3>:11' */
         localDW->is_EMERGENCY = 0U;
@@ -175,32 +177,42 @@ void TrafficLightController(const boolean_T *rtu_Sensor1Vd_, const boolean_T
 
         /* Entry 'INIT': '<S3>:23' */
         /* '<S3>:23:1' Light=RE; */
-        *rty_LightSD1 = 1U;
+        *rty_LightSD1 = RE;
       } else if (localDW->is_EMERGENCY == TrafficLightControlle_IN_BLINK1) {
         /* During 'BLINK1': '<S3>:22' */
         /* '<S3>:1:1' sf_internal_predicateOutput = ... */
-        /* '<S3>:1:1' after(OrangeTime,sec); */
-        if (localDW->temporalCounter_i1 >= 10U) {
+        /* '<S3>:1:1' after(10*OrangeTime,msec); */
+        tmp = 10U * OrangeTime;
+        if (tmp > 65535U) {
+          tmp = 65535U;
+        }
+
+        if (localDW->temporalCounter_i1 * 100U >= tmp) {
           /* Transition: '<S3>:1' */
           localDW->is_EMERGENCY = TrafficLightControlle_IN_BLINK2;
           localDW->temporalCounter_i1 = 0U;
 
           /* Entry 'BLINK2': '<S3>:10' */
           /* '<S3>:10:1' Light=OFF */
-          *rty_LightSD1 = 0U;
+          *rty_LightSD1 = OFF;
         }
       } else {
         /* During 'BLINK2': '<S3>:10' */
         /* '<S3>:9:1' sf_internal_predicateOutput = ... */
-        /* '<S3>:9:1' after(OrangeTime,sec); */
-        if (localDW->temporalCounter_i1 >= 10U) {
+        /* '<S3>:9:1' after(10*OrangeTime,msec); */
+        tmp = 10U * OrangeTime;
+        if (tmp > 65535U) {
+          tmp = 65535U;
+        }
+
+        if (localDW->temporalCounter_i1 * 100U >= tmp) {
           /* Transition: '<S3>:9' */
           localDW->is_EMERGENCY = TrafficLightControlle_IN_BLINK1;
           localDW->temporalCounter_i1 = 0U;
 
           /* Entry 'BLINK1': '<S3>:22' */
           /* '<S3>:22:1' Light=OR */
-          *rty_LightSD1 = 2U;
+          *rty_LightSD1 = OR;
         }
       }
       break;
@@ -208,9 +220,9 @@ void TrafficLightController(const boolean_T *rtu_Sensor1Vd_, const boolean_T
      case TrafficLightController_IN_INIT:
       /* During 'INIT': '<S3>:23' */
       /* '<S3>:17:1' sf_internal_predicateOutput = ... */
-      /* '<S3>:17:1' ((TAG==InitPr)&&(after(0.5,sec))); */
-      if ((*rtu_Tag_ == localDW->Delay2_DSTATE) && (localDW->temporalCounter_i1 >=
-           5U)) {
+      /* '<S3>:17:1' ((TAG==InitPr)&&(after(OrangeTime,msec))); */
+      if ((*rtu_Tag_ == localDW->Delay2_DSTATE) && (localDW->temporalCounter_i1 *
+           100U >= OrangeTime)) {
         /* Transition: '<S3>:17' */
         localDW->is_c4_TrafficLightController = TrafficLightControlle_IN_NORMAL;
         localDW->is_NORMAL = TrafficLightContr_IN_SD_TRAFFIC;
@@ -218,7 +230,7 @@ void TrafficLightController(const boolean_T *rtu_Sensor1Vd_, const boolean_T
 
         /* Entry 'SD_TRAFFIC': '<S3>:8' */
         /* '<S3>:8:1' Light=GR */
-        *rty_LightSD1 = 3U;
+        *rty_LightSD1 = GR;
       } else {
         /* '<S3>:15:1' sf_internal_predicateOutput = ... */
         /* '<S3>:15:1' ((TAG~=InitPr)&&(after(0.5,sec))); */
@@ -232,11 +244,11 @@ void TrafficLightController(const boolean_T *rtu_Sensor1Vd_, const boolean_T
 
           /* Entry 'OD_TRAFFIC': '<S3>:5' */
           /* '<S3>:5:1' Light=RE */
-          *rty_LightSD1 = 1U;
+          *rty_LightSD1 = RE;
         } else {
           /* '<S3>:4:1' sf_internal_predicateOutput = ... */
-          /* '<S3>:4:1' ((EM==1)&&(after(0.5,sec))); */
-          if (rtb_em && (localDW->temporalCounter_i1 >= 5U)) {
+          /* '<S3>:4:1' ((EM==1)&&(after(OrangeTime,msec))); */
+          if (rtb_em && (localDW->temporalCounter_i1 * 100U >= OrangeTime)) {
             /* Transition: '<S3>:4' */
             localDW->is_c4_TrafficLightController =
               TrafficLightContro_IN_EMERGENCY;
@@ -249,7 +261,7 @@ void TrafficLightController(const boolean_T *rtu_Sensor1Vd_, const boolean_T
 
             /* Entry 'BLINK1': '<S3>:22' */
             /* '<S3>:22:1' Light=OR */
-            *rty_LightSD1 = 2U;
+            *rty_LightSD1 = OR;
           }
         }
       }
@@ -273,66 +285,66 @@ void TrafficLightController(const boolean_T *rtu_Sensor1Vd_, const boolean_T
 
         /* Entry 'BLINK1': '<S3>:22' */
         /* '<S3>:22:1' Light=OR */
-        *rty_LightSD1 = 2U;
+        *rty_LightSD1 = OR;
       } else {
         switch (localDW->is_NORMAL) {
          case TrafficLightContro_IN_OD_ORANGE:
           /* During 'OD_ORANGE': '<S3>:21' */
           /* '<S3>:20:1' sf_internal_predicateOutput = ... */
-          /* '<S3>:20:1' after(OrangeTime,sec); */
-          if (localDW->temporalCounter_i1 >= 10U) {
+          /* '<S3>:20:1' after(OrangeTime,msec); */
+          if (localDW->temporalCounter_i1 * 100U >= OrangeTime) {
             /* Transition: '<S3>:20' */
             localDW->is_NORMAL = TrafficLightContr_IN_SD_TRAFFIC;
             localDW->temporalCounter_i1 = 0U;
 
             /* Entry 'SD_TRAFFIC': '<S3>:8' */
             /* '<S3>:8:1' Light=GR */
-            *rty_LightSD1 = 3U;
+            *rty_LightSD1 = GR;
           }
           break;
 
          case TrafficLightContr_IN_OD_TRAFFIC:
           /* During 'OD_TRAFFIC': '<S3>:5' */
           /* '<S3>:18:1' sf_internal_predicateOutput = ... */
-          /* '<S3>:18:1' after(GreenTime,sec); */
-          if (localDW->temporalCounter_i1 >= 40U) {
+          /* '<S3>:18:1' after(GreenTime,msec); */
+          if (localDW->temporalCounter_i1 * 100U >= GreenTime) {
             /* Transition: '<S3>:18' */
             localDW->is_NORMAL = TrafficLightContro_IN_OD_ORANGE;
             localDW->temporalCounter_i1 = 0U;
 
             /* Entry 'OD_ORANGE': '<S3>:21' */
             /* '<S3>:21:1' Light=RE */
-            *rty_LightSD1 = 1U;
+            *rty_LightSD1 = RE;
           }
           break;
 
          case TrafficLightContr_IN_SD_ORANGE1:
           /* During 'SD_ORANGE1': '<S3>:3' */
           /* '<S3>:16:1' sf_internal_predicateOutput = ... */
-          /* '<S3>:16:1' after(OrangeTime,sec); */
-          if (localDW->temporalCounter_i1 >= 10U) {
+          /* '<S3>:16:1' after(OrangeTime,msec); */
+          if (localDW->temporalCounter_i1 * 100U >= OrangeTime) {
             /* Transition: '<S3>:16' */
             localDW->is_NORMAL = TrafficLightContr_IN_OD_TRAFFIC;
             localDW->temporalCounter_i1 = 0U;
 
             /* Entry 'OD_TRAFFIC': '<S3>:5' */
             /* '<S3>:5:1' Light=RE */
-            *rty_LightSD1 = 1U;
+            *rty_LightSD1 = RE;
           }
           break;
 
          default:
           /* During 'SD_TRAFFIC': '<S3>:8' */
           /* '<S3>:19:1' sf_internal_predicateOutput = ... */
-          /* '<S3>:19:1' after(GreenTime,sec); */
-          if (localDW->temporalCounter_i1 >= 40U) {
+          /* '<S3>:19:1' after(GreenTime,msec); */
+          if (localDW->temporalCounter_i1 * 100U >= GreenTime) {
             /* Transition: '<S3>:19' */
             localDW->is_NORMAL = TrafficLightContr_IN_SD_ORANGE1;
             localDW->temporalCounter_i1 = 0U;
 
             /* Entry 'SD_ORANGE1': '<S3>:3' */
             /* '<S3>:3:1' Light=OR */
-            *rty_LightSD1 = 2U;
+            *rty_LightSD1 = OR;
           }
           break;
         }
@@ -350,6 +362,9 @@ void TrafficLightController(const boolean_T *rtu_Sensor1Vd_, const boolean_T
   localDW->Delay_DSTATE = *rty_LightSD1;
 
   /* Update for Delay: '<Root>/Delay One Step4' incorporates:
+   *  Constant: '<S2>/Constant1'
+   *  Constant: '<S2>/Constant2'
+   *  Constant: '<S2>/Constant3'
    *  Logic: '<Root>/Logical Operator1'
    *  Logic: '<S2>/Logical Operator2'
    *  Logic: '<S2>/Logical Operator4'
@@ -359,7 +374,7 @@ void TrafficLightController(const boolean_T *rtu_Sensor1Vd_, const boolean_T
    *  RelationalOperator: '<S2>/Relational Operator3'
    */
   localDW->DelayOneStep4_DSTATE = ((*rty_VdSD1) && (!((rtb_RelationalOperator ||
-    (*rtu_LightSD2_ >= 1)) && ((*rtu_LightOD1_ >= 1) || (*rtu_LightOD2_ >= 1)))));
+    (*rtu_LightSD2_ > 1.0)) && ((*rtu_LightOD1_ > 1.0) || (*rtu_LightOD2_ > 1.0)))));
 
   /* Update for Delay: '<Root>/Delay2' */
   localDW->Delay2_DSTATE = rtb_InitPr;

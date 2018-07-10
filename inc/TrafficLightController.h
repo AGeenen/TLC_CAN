@@ -3,12 +3,12 @@
  *
  * Code generated for Simulink model 'TrafficLightController'.
  *
- * Model version                  : 1.195
+ * Model version                  : 1.238
  * Simulink Coder version         : 8.11 (R2016b) 25-Aug-2016
- * C/C++ source code generated on : Fri Jul 06 16:14:13 2018
+ * C/C++ source code generated on : Tue Jul 10 12:24:00 2018
  *
  * Target selection: ert.tlc
- * Embedded hardware selection: Intel->x86-64 (Windows64)
+ * Embedded hardware selection: ARM Compatible->ARM Cortex
  * Code generation objectives: Unspecified
  * Validation result: Not run
  */
@@ -23,12 +23,15 @@
 
 #include "TrafficLightController_types.h"
 
+/* Includes for objects with custom storage classes. */
+#include "TLC_def.h"
+
 /* Block states (auto storage) for model 'TrafficLightController' */
 typedef struct {
   real_T DelayOneStep1_DSTATE;         /* '<Root>/Delay One Step1' */
+  real_T Delay_DSTATE;                 /* '<Root>/Delay' */
   uint32_T temporalCounter_i1;         /* '<Root>/TrafficLightHandler ' */
   uint32_T temporalCounter_i2;         /* '<Root>/TrafficLightHandler ' */
-  uint8_T Delay_DSTATE;                /* '<Root>/Delay' */
   boolean_T DelayOneStep4_DSTATE;      /* '<Root>/Delay One Step4' */
   boolean_T Delay2_DSTATE;             /* '<Root>/Delay2' */
   uint8_T is_active_c4_TrafficLightContro;/* '<Root>/TrafficLightHandler ' */
@@ -61,17 +64,18 @@ extern void TrafficLightController(const boolean_T *rtu_Sensor1Vd_, const
   boolean_T *rtu_Sensor2Vd_, const boolean_T *rtu_Sensor3Vd_, const boolean_T
   *rtu_lgtVd, const boolean_T *rtu_Sensor1Value_, const boolean_T
   *rtu_Sensor2Value_, const boolean_T *rtu_Sensor3Value_, const boolean_T
-  *rtu_VdSD2, const real_T *rtu_CountSD2, const uint8_T *rtu_LightSD2_, const
-  boolean_T *rtu_VdOD1, const real_T *rtu_CountOD1, const uint8_T *rtu_LightOD1_,
-  const boolean_T *rtu_VdOD2, const real_T *rtu_CountOD2, const uint8_T
+  *rtu_VdSD2, const real_T *rtu_CountSD2, const real_T *rtu_LightSD2_, const
+  boolean_T *rtu_VdOD1, const real_T *rtu_CountOD1, const real_T *rtu_LightOD1_,
+  const boolean_T *rtu_VdOD2, const real_T *rtu_CountOD2, const real_T
   *rtu_LightOD2_, const boolean_T *rtu_Tag_, boolean_T *rty_VdSD1, real_T
-  *rty_CountSD1, uint8_T *rty_LightSD1, DW_TrafficLightController_f_T *localDW);
+  *rty_CountSD1, real_T *rty_LightSD1, DW_TrafficLightController_f_T *localDW);
 
 /*-
  * These blocks were eliminated from the model due to optimizations:
  *
  * Block '<Root>/Scope' : Unused code path elimination
  * Block '<Root>/Data Type Conversion3' : Eliminate redundant data type conversion
+ * Block '<Root>/Data Type Conversion4' : Eliminate redundant data type conversion
  */
 
 /*-

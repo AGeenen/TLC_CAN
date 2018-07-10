@@ -91,9 +91,9 @@ OUTPUT := $(BIN)/$(OUTPUT)
 #-------------------------------------------------------------------------------
 
 # Flags
-CFLAGS = -Wall -fno-common -c -g -mcpu=cortex-m3 -mthumb					#fno-common= error if unitialized variable is in more than one file, #mcpu=cortex-m3 -> cortex m3 -mthumb= 32b instruction set
+CFLAGS = -Wall -fno-math-errno -c -g -mcpu=cortex-m3 -mthumb -mfloat-abi=hard				#fno-common= error if unitialized variable is in more than one file, #mcpu=cortex-m3 -> cortex m3 -mthumb= 32b instruction set
 CFLAGS += -g $(OPTIMIZATION) $(INCLUDES) -DTRACE_LEVEL=$(TRACE_LEVEL)
-ASFLAGS = -g -mapcs-32										#mapcs-32= create stack that is compliant with the ARM Procedure Call Standard in 32b-frame
+ASFLAGS = -g -mapcs-32									#mapcs-32= create stack that is compliant with the ARM Procedure Call Standard in 32b-frame
 LDFLAGS = -g -v -nostartfiles									#-v=version -nostartfiles= don't use standard start files of liner
 
 OBJCOPYFLAGS = -O binary
@@ -131,8 +131,8 @@ $(C_OBJECTS): main.c lib/system_stm32f2xx.c
 	$(CC) $(CFLAGS) -o $(OBJ)/can.o         	$(SRC)/can.c
 	$(CC) $(CFLAGS) -o $(OBJ)/const_params.o       	$(SRC)/const_params.c
 	$(CC) $(CFLAGS) -o $(OBJ)/TLC_2016B.o  		$(SRC)/TLC_2016B.c
-	$(CC) $(CFLAGS) -o $(OBJ)/rt_urand_Upu32_Yd_f_pw.o     		$(SRC)/rt_urand_Upu32_Yd_f_pw.c
-	$(CC) $(CFLAGS) -o $(OBJ)/TrafficLightController.o		$(SRC)/TrafficLightController.c
+	$(CC) $(CFLAGS) -o $(OBJ)/rt_urand_Upu32_Yd_f_pw.o	$(SRC)/rt_urand_Upu32_Yd_f_pw.c
+	$(CC) $(CFLAGS) -o $(OBJ)/TrafficLightController.o	$(SRC)/TrafficLightController.c
 	$(CC) $(CFLAGS) -o $(OBJ)/memset.o	  	$(SRC)/memset.c
 	
 $(ASM_OBJECTS): $(STARTUPFILE)
@@ -140,4 +140,4 @@ $(ASM_OBJECTS): $(STARTUPFILE)
 	$(AS) $(ASFLAGS) -o $(OBJ)/startup_stm32f2xx.o $(STARTUPFILE)
 
 clean:
-	-rm -f $(OBJ)/*.o $(BIN)/*.out $(BIN)/*.bin $(BIN)/*.dmp $(BIN)/*.map
+	-rm -f $(OBJ)/*.o $(BIN)/*.out $(BIN)/*.bin $(BIN)/*.dmp $(BIN)/*.map-

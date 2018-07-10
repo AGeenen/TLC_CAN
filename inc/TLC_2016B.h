@@ -3,12 +3,14 @@
  *
  * Code generated for Simulink model 'TLC_2016B'.
  *
- * Model version                  : 1.225
+ * Model version                  : 1.249
  * Simulink Coder version         : 8.11 (R2016b) 25-Aug-2016
- * C/C++ source code generated on : Fri Jul 06 16:14:23 2018
+ * C/C++ source code generated on : Tue Jul 10 12:25:03 2018
  *
  * Target selection: ert.tlc
- * Embedded hardware selection: Intel->x86-64 (Windows64)
+ * Embedded hardware selection: ARM Compatible->ARM Cortex
+ * Emulation hardware selection:
+ *    Differs from embedded hardware (MATLAB Host)
  * Code generation objectives: Unspecified
  * Validation result: Not run
  */
@@ -27,6 +29,9 @@
 /* Child system includes */
 #include "TrafficLightController.h"
 
+/* Includes for objects with custom storage classes. */
+#include "TLC_def.h"
+
 /* Macros for accessing real-time model data structure */
 #ifndef rtmGetErrorStatus
 # define rtmGetErrorStatus(rtm)        ((rtm)->errorStatus)
@@ -39,54 +44,6 @@
 #ifndef rtmGetErrorStatusPointer
 # define rtmGetErrorStatusPointer(rtm) ((const char_T **)(&((rtm)->errorStatus)))
 #endif
-
-/* Block signals (auto storage) */
-typedef struct {
-  real_T countSD1_E;                   /* '<S1>/TrafficLightController' */
-  real_T countSD1_N;                   /* '<S2>/TrafficLightController' */
-  real_T countSD1_S;                   /* '<S3>/TrafficLightController' */
-  real_T countSD1_W;                   /* '<S4>/TrafficLightController' */
-  uint8_T lightSD1_E;                  /* '<S1>/TrafficLightController' */
-  uint8_T lightSD1_N;                  /* '<S2>/TrafficLightController' */
-  uint8_T lightSD1_S;                  /* '<S3>/TrafficLightController' */
-  uint8_T lightSD1_W;                  /* '<S4>/TrafficLightController' */
-  boolean_T tag_N;                     /* '<Root>/Constant' */
-  boolean_T tag_S;                     /* '<Root>/Constant1' */
-  boolean_T tag_W;                     /* '<Root>/Constant2' */
-  boolean_T tag_E;                     /* '<Root>/Constant3' */
-  boolean_T lgtGrVd_E;                 /* '<S1>/LgtGrVd_' */
-  boolean_T sensor1Value_E;            /* '<S1>/Sensor1Value_' */
-  boolean_T sensor1Vd_E;               /* '<S1>/Sensor1Vd_' */
-  boolean_T sensor2Value_E;            /* '<S1>/Sensor2Value_' */
-  boolean_T sensor2Vd_E;               /* '<S1>/Sensor2Vd_' */
-  boolean_T sensor3Value_E;            /* '<S1>/Sensor3Value_' */
-  boolean_T sensor3Vd_E;               /* '<S1>/Sensor3Vd_' */
-  boolean_T vdSD1_E;                   /* '<S1>/TrafficLightController' */
-  boolean_T lgtGrVd_N;                 /* '<S2>/LgtGrVd_' */
-  boolean_T sensor1Value_N;            /* '<S2>/Sensor1Value_' */
-  boolean_T sensor1Vd_N;               /* '<S2>/Sensor1Vd_' */
-  boolean_T sensor2Value_N;            /* '<S2>/Sensor2Value_' */
-  boolean_T sensor2Vd_N;               /* '<S2>/Sensor2Vd_' */
-  boolean_T sensor3Value_N;            /* '<S2>/Sensor3Value_' */
-  boolean_T sensor3Vd_N;               /* '<S2>/Sensor3Vd_' */
-  boolean_T vdSD1_N;                   /* '<S2>/TrafficLightController' */
-  boolean_T lgtGrVd_S;                 /* '<S3>/LgtGrVd_' */
-  boolean_T sensor1Value_S;            /* '<S3>/Sensor1Value_' */
-  boolean_T sensor1Vd_S;               /* '<S3>/Sensor1Vd_' */
-  boolean_T sensor2Value_S;            /* '<S3>/Sensor2Value_' */
-  boolean_T sensor2Vd_S;               /* '<S3>/Sensor2Vd_' */
-  boolean_T sensor3Value_S;            /* '<S3>/Sensor3Value_' */
-  boolean_T sensor3Vd_S;               /* '<S3>/Sensor3Vd_' */
-  boolean_T vdSD1_S;                   /* '<S3>/TrafficLightController' */
-  boolean_T lgtGrVd_W;                 /* '<S4>/LgtGrVd_' */
-  boolean_T sensor1Value_W;            /* '<S4>/Sensor1Value_' */
-  boolean_T sensor1Vd_W;               /* '<S4>/Sensor1Vd_' */
-  boolean_T sensor2Value_W;            /* '<S4>/Sensor2Value_' */
-  boolean_T sensor2Vd_W;               /* '<S4>/Sensor2Vd_' */
-  boolean_T sensor3Value_W;            /* '<S4>/Sensor3Value_' */
-  boolean_T sensor3Vd_W;               /* '<S4>/Sensor3Vd_' */
-  boolean_T vdSD1_W;                   /* '<S4>/TrafficLightController' */
-} B_TLC_2016B_T;
 
 /* Block states (auto storage) for system '<Root>' */
 typedef struct {
@@ -101,13 +58,62 @@ struct tag_RTM_TLC_2016B_T {
   const char_T * volatile errorStatus;
 };
 
-/* Block signals (auto storage) */
-/* Volatile memory section */
-extern B_TLC_2016B_T TLC_2016B_B;
-
 /* Block states (auto storage) */
 /* Volatile memory section */
 extern DW_TLC_2016B_T TLC_2016B_DW;
+
+/*
+ * Exported Global Signals
+ *
+ * Note: Exported global signals are block signals with an exported global
+ * storage class designation.  Code generation will declare the memory for
+ * these signals and export their symbols.
+ *
+ */
+extern real_T countSD1_E;              /* '<S1>/TrafficLightController' */
+extern real_T lightSD1_E;              /* '<S1>/TrafficLightController' */
+extern real_T countSD1_N;              /* '<S2>/TrafficLightController' */
+extern real_T lightSD1_N;              /* '<S2>/TrafficLightController' */
+extern real_T countSD1_S;              /* '<S3>/TrafficLightController' */
+extern real_T lightSD1_S;              /* '<S3>/TrafficLightController' */
+extern real_T countSD1_W;              /* '<S4>/TrafficLightController' */
+extern real_T lightSD1_W;              /* '<S4>/TrafficLightController' */
+extern boolean_T tag_N;                /* '<Root>/Constant' */
+extern boolean_T tag_S;                /* '<Root>/Constant1' */
+extern boolean_T tag_W;                /* '<Root>/Constant2' */
+extern boolean_T tag_E;                /* '<Root>/Constant3' */
+extern boolean_T lgtVd_E;              /* '<S1>/LgtVd_' */
+extern boolean_T sensor1Value_E;       /* '<S1>/Sensor1Value_' */
+extern boolean_T sensor1Vd_E;          /* '<S1>/Sensor1Vd_' */
+extern boolean_T sensor2Value_E;       /* '<S1>/Sensor2Value_' */
+extern boolean_T sensor2Vd_E;          /* '<S1>/Sensor2Vd_' */
+extern boolean_T sensor3Value_E;       /* '<S1>/Sensor3Value_' */
+extern boolean_T sensor3Vd_E;          /* '<S1>/Sensor3Vd_' */
+extern boolean_T vdSD1_E;              /* '<S1>/TrafficLightController' */
+extern boolean_T lgtVd_N;              /* '<S2>/LgtVd_' */
+extern boolean_T sensor1Value_N;       /* '<S2>/Sensor1Value_' */
+extern boolean_T sensor1Vd_N;          /* '<S2>/Sensor1Vd_' */
+extern boolean_T sensor2Value_N;       /* '<S2>/Sensor2Value_' */
+extern boolean_T sensor2Vd_N;          /* '<S2>/Sensor2Vd_' */
+extern boolean_T sensor3Value_N;       /* '<S2>/Sensor3Value_' */
+extern boolean_T sensor3Vd_N;          /* '<S2>/Sensor3Vd_' */
+extern boolean_T vdSD1_N;              /* '<S2>/TrafficLightController' */
+extern boolean_T lgtVd_S;              /* '<S3>/LgtVd_' */
+extern boolean_T sensor1Value_S;       /* '<S3>/Sensor1Value_' */
+extern boolean_T sensor1Vd_S;          /* '<S3>/Sensor1Vd_' */
+extern boolean_T sensor2Value_S;       /* '<S3>/Sensor2Value_' */
+extern boolean_T sensor2Vd_S;          /* '<S3>/Sensor2Vd_' */
+extern boolean_T sensor3Value_S;       /* '<S3>/Sensor3Value_' */
+extern boolean_T sensor3Vd_S;          /* '<S3>/Sensor3Vd_' */
+extern boolean_T vdSD1_S;              /* '<S3>/TrafficLightController' */
+extern boolean_T lgtVd_W;              /* '<S4>/LgtVd_' */
+extern boolean_T sensor1Value_W;       /* '<S4>/Sensor1Value_' */
+extern boolean_T sensor1Vd_W;          /* '<S4>/Sensor1Vd_' */
+extern boolean_T sensor2Value_W;       /* '<S4>/Sensor2Value_' */
+extern boolean_T sensor2Vd_W;          /* '<S4>/Sensor2Vd_' */
+extern boolean_T sensor3Value_W;       /* '<S4>/Sensor3Value_' */
+extern boolean_T sensor3Vd_W;          /* '<S4>/Sensor3Vd_' */
+extern boolean_T vdSD1_W;              /* '<S4>/TrafficLightController' */
 
 /* Model entry point functions */
 /* Volatile memory section */
@@ -121,7 +127,7 @@ extern void TLC_2016B_terminate(void);
 
 /* Real-time Model object */
 
-/* Const memory section */
+/* Volatile memory section */
 extern RT_MODEL_TLC_2016B_T *const TLC_2016B_M;
 
 /*-
